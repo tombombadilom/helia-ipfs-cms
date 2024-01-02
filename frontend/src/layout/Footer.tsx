@@ -1,5 +1,5 @@
-import React from 'react'
-const Footer = () => {
+import React,{ReactElement} from 'react'
+const Footer: React.FC = (): ReactElement => {
   return (
 		<footer className="footer items-center p-4 bg-neutral text-neutral-content">
 			<aside className="items-center grid-flow-col">
