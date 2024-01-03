@@ -4,6 +4,7 @@ import svgr from 'vite-plugin-svgr'
 import type { ManifestOptions, VitePWAOptions } from 'vite-plugin-pwa'
 import { VitePWA } from 'vite-plugin-pwa'
 import replace from '@rollup/plugin-replace'
+import terser from '@rollup/plugin-terser'
 
 /**
  * Generates the Vite configuration.
@@ -45,6 +46,7 @@ const generateConfig = (
     plugins: [
       react({ swc: true }), 
       svgr(), 
+      terser(),
       VitePWA(pwaOptions),
       replace(replaceOptions),
     ]
