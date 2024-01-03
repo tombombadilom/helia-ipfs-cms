@@ -74,3 +74,30 @@
     @apply bg-background text-foreground;
   }
 }
+.loading #pulsar{
+  stroke-dasharray:281;
+  animation: dash 2.5s infinite linear forwards;
+  -webkit-animation: dash 2.5s infinite linear forwards;
+
+}
+
+/*Animation*/
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 814;
+  }
+
+  to {
+    stroke-dashoffset: -814;
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 814;
+  }
+
+  to {
+    stroke-dashoffset: -814;
+  }
+}
