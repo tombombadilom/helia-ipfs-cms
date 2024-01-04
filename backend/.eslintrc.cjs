@@ -15,6 +15,6 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    // Add your ESLint rules here
-  },
+    '@typescript-eslint/no-unused-vars': ['warn', { vars: 'all', args: 'none', ignoreRestSiblings: true }],
+  }, 
 };

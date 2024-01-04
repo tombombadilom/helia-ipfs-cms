@@ -1,8 +1,7 @@
-const { register, login, logout } = require('../src/middleware/auth/auth');
-const  {jest, expect, describe, it } = require('@jest/global');
+import { register, login, logout } from '../src/middleware/auth/auth';
 
-describe('Authentification', () => {
-  it('devrait enregistrer un nouvel utilisateur avec succès', () => {
+describe('Authentication', () => {
+  it('should register a new user successfully', () => {
     const req = {
       body: {
         username: 'utilisateur_test',
@@ -13,10 +12,10 @@ describe('Authentification', () => {
       send: jest.fn(),
     };
     register(req, res);
-    expect(res.send).toHaveBeenCalledWith('Enregistrement effectué avec succès!');
+    expect(res.send).toHaveBeenCalledWith('Registration successful!');
   });
 
-  it('devrait connecter un utilisateur avec succès', () => {
+  it('should login a user successfully', () => {
     const req = {
       body: {
         username: 'utilisateur_test',
@@ -27,16 +26,15 @@ describe('Authentification', () => {
       send: jest.fn(),
     };
     login(req, res);
-    expect(res.send).toHaveBeenCalledWith('Connexion réussie!');
+    expect(res.send).toHaveBeenCalledWith('Login successful!');
   });
 
-  it('devrait déconnecter un utilisateur avec succès', () => {
+  it('should logout a user successfully', () => {
     const req = {};
     const res = {
       send: jest.fn(),
     };
     logout(req, res);
-    expect(res.send).toHaveBeenCalledWith('Déconnexion réussie!');
+    expect(res.send).toHaveBeenCalledWith('Logout successful!');
   });
 });
-

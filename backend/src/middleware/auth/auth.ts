@@ -11,7 +11,6 @@ export const register = (req: Request, res: Response): void => {
   console.log(name, password, email);
   res.send('Enregistrement effectué avec succès!');
 };
-
 export const login = (req: Request, res: Response): void => {
   /**
    * Logique de connexion ici
@@ -21,7 +20,17 @@ export const login = (req: Request, res: Response): void => {
    */
   const { email, password } = req.body;
   console.log(email, password);
-  res.send('Connexion réussie!');
+  
+  // Perform login logic here
+  
+  // Check if login was successful
+  const loginSuccessful = true; // Replace with your login logic
+  
+  if (loginSuccessful) {
+    res.json({ success: true, message: "Login successful", error: null });
+  } else {
+    res.json({ success: false, message: "Login failed", error: null });
+  }
 };
 
 export const logout = (req: Request, res: Response): void => {
