@@ -1,3 +1,3 @@
-export const Home = (req: Request, res: Response) => {
+export const Home = () => {
   return "Hello World!";
 }

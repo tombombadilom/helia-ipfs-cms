@@ -14,8 +14,6 @@ const routes: string[] = fs.readdirSync(routesDirectory)
   .filter((file) => file.endsWith('.ts'))
   .map((file) => file.replace('.ts', ''));
 
-app.use(cors());
-
 // Middleware for access logs
 const accessLogStream = fs.createWriteStream('access.log', { flags: 'a' });
 app.use(morgan('combined', { stream: accessLogStream }));
@@ -26,10 +24,7 @@ app.use(morgan('combined', { stream: errorLogStream }));
 
 const router: Router = express.Router();
 
-import { Application } from "express";
-
-const app: Application = express();
-
+app.use(cors());
 app.use("/", routes);
 
 router.get('/:slug', (req: Request, res: Response): void => {
