@@ -34,14 +34,17 @@ app.use("/", routes);
 
 router.get('/:slug', (req: Request, res: Response): void => {
   const slug: string = req.params.slug;
-  res.send(`Received request with slug: ${slug}`);
+  if (!slug) {
+    res.redirect('/routes/home.ts');
+  } else {
+    res.send(`Received request with slug: ${slug}`);
+  }
 });
 
 router.use((req: Request, res: Response): void => {
   const slug: string = req.params.slug;
   res.status(404).send(slug ? slug + ' Not Found' : 'Not Found');
 });
-
 app.use(router);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction): void => {
