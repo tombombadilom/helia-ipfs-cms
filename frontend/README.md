@@ -1,4 +1,17 @@
-# React + TypeScript + Vite
+# Frontend
+This is a simple implementation of a simple react and node.js cms written in typescript with storage in ipfs with helia.
+
+## Frontend
+- Nodejs 20
+- pnpm
+- React
+- Vite + swc
+- Typescript
+- Talwindcss
+- Shadcn/ui
+- Vitest
+- Eslint
+- ....
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
