@@ -15,36 +15,23 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "../components/ui/menubar";
-import {ModeToggle} from '../lib/mode-toggle';
+import { ModeToggle } from '../lib/mode-toggle';
 import Auth from "../auth/Auth";
 
-const Header = (): ReactElement => {
+
+const Header = ({children}): ReactElement => {
   const navigate: NavigateFn = useNavigate();
+
   return (
     <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh">
       <MenubarMenu>
-        
+       {children}
+      </MenubarMenu>
+      <MenubarMenu>
         <MenubarTrigger>File</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
             New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem>
-            New Window <MenubarShortcut>⌘N</MenubarShortcut>
-          </MenubarItem>
-          <MenubarItem disabled>New Incognito Window</MenubarItem>
-          <MenubarSeparator />
-          <MenubarSub>
-            <MenubarSubTrigger>Share</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>Email link</MenubarItem>
-              <MenubarItem>Messages</MenubarItem>
-              <MenubarItem>Notes</MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSeparator />
-          <MenubarItem>
-            Print... <MenubarShortcut>⌘P</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
@@ -97,27 +84,23 @@ const Header = (): ReactElement => {
       <MenubarMenu>
         <ModeToggle />
       </MenubarMenu>
-      {Auth.isUserAuthenticated() &&
-       <MenubarMenu>
-        <MenubarTrigger>Profiles</MenubarTrigger>
-        <MenubarContent>
-          <MenubarRadioGroup value="benoit">
-            <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-            <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-            <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-          </MenubarRadioGroup>
-          <MenubarSeparator />
-          <MenubarItem inset>Edit...</MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem inset>Add Profile...</MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>  
-      }
-     
+      {Auth.isUserAuthenticated() && (
+        <MenubarMenu>
+          <MenubarTrigger>Profiles</MenubarTrigger>
+          <MenubarContent>
+            <MenubarRadioGroup value="benoit">
+              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+            </MenubarRadioGroup>
+            <MenubarSeparator />
+            <MenubarItem inset>Edit...</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem inset>Add Profile...</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      )}
     </Menubar>
-
-
-  )
+  );
 }
-
 export default Header;

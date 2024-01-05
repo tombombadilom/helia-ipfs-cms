@@ -1,62 +1,61 @@
 import React, { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger
-} from "../components/ui/drawer";
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../components/ui/sheet"
+import { Menu } from 'lucide-react';
 import {Button} from "../components/ui/button";
-
-//import { ReactComponent as Logo } from '../assets/safari-pinned-tab.min.svg';
+import Header from "./Header";
+import Logo  from "../components/logo/logo";
 
 /**
  * Renders the logo component.
  * @returns {ReactComponentElement<React.SVGProps<SVGSVGElement>>} The logo component.
  */
 
-type DrawerProps = {
+type SheetProps = {
   children: ReactNode;
 };
 
-const MyDrawer: React.FC<DrawerProps> = ({ children }) => {
+const MySheet: React.FC<SheetProps> = ({ children }) => {
+  const side = 'left';
   const navigate = useNavigate();
   return (
-      <Drawer>
-        {children}
-        <DrawerTrigger>Open</DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Are you sure absolutely sure?</DrawerTitle>
-            <DrawerDescription>
-              <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                <li>
-                  <React.Fragment>
-                    <a onClick={() => navigate("/")}>Homepage</a>
-                  </React.Fragment>
-                </li>
-                <li>
-                  <React.Fragment>
-                    <a onClick={() => navigate("/about")}>About</a>
-                  </React.Fragment>
-                </li>
-              </ul>
-              This action cannot be undone.
-            </DrawerDescription>
-          </DrawerHeader>
-        <DrawerFooter>
-          <Button>Submit</Button>
-          <DrawerClose>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
+    <Sheet key={side}>
+      <Header>
+        <SheetTrigger><Menu/></SheetTrigger>
+      </Header>
+      {children}
+      <SheetContent side={side} className="w-[400px] sm:w-[540px]">
+        <SheetHeader>
+          <SheetTitle>
+            <Logo width={100} height={100} />
+            Helia IPFS CMS
+          </SheetTitle>
+          <SheetDescription>
+            <div data-radix-scroll-area-viewport=""
+              className="h-full w-full rounded-[inherit]"
+            >
+              <div className="table">
+                <div className="flex flex-col space-y-3">
+                  <a  href="/">Home</a>
+                  <a  href="/Login">Login</a>
+                  <a  href="/Register">Register</a>
+                  <a  href="/logout">Logout</a>
+                  <a  href="/docs/figma">Figma</a>
+                </div>
+              </div>
+            </div>
+          </SheetDescription>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
   );
 };
 
-export default MyDrawer;
+export default MySheet;
