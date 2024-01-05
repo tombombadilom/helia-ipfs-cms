@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "debug": "pnpm run start -- --inspect",
-    "dev": "ts-node src/index.js",
+    "dev": "ts-node ./src/index.ts && ts-node ./src/index.ts",
     "build": "tsc ",
     "start": "pnpm run build && node dist/index.js",
-    "lint": "eslint . --ext js,ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
