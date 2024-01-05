@@ -42,13 +42,17 @@ app.use("/", router);
 
 router.get('/:slug', (req: Request, res: Response): void => {
   const slug: string = req.params.slug;
+ 
   if (!slug) {
     res.redirect('/routes/home.ts');
   } else {
-    if (routes.includes(slug)) {
-      res.redirect(`/routes/${slug}.ts`);
+    const forbiddenCharactersRegex = /[.\^$*+?{}[\]|\(\)]/g;
+    const cleanedSlug = slug.replace(forbiddenCharactersRegex, '');
+
+    if (routes.includes(cleanedSlug)) {
+      res.redirect(`/routes/${cleanedSlug}.ts`);
     } else {
-      res.redirect('/routes/404.ts');
+      res.redirect(`/routes/404.ts?slug=${cleanedSlug}`);
     }
   }
 });
