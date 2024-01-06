@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import MapLoading from "./components/loading/Map.tsx";
 const Layout = lazy(() => import("./layout/Layout"));
 const Login = lazy(() => import("./auth/Login.tsx"));
 const Logout = lazy(() => import("./auth/Logout.tsx"));
@@ -16,9 +17,10 @@ const MyRoutes = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Logout" element={<Logout />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Map" element={<MapLoading />} />
         </Routes>
       </Layout>
     </Router>

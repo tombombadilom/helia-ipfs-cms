@@ -80,6 +80,15 @@
   -webkit-animation: dash 2.5s infinite linear forwards;
 
 }
+.dotmap {
+  opacity: 1;
+}
+.dotmap circle {
+  transition: all 3s;
+}
+.dotmap circle animate {
+  transform: translate(0,0) !important;
+}
 
 /*Animation*/
 @-webkit-keyframes dash {

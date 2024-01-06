@@ -9,6 +9,8 @@ import {
   SheetTrigger,
 } from "../components/ui/sheet"
 import { Menu } from 'lucide-react';
+import SideMenu from './Menu';
+
 import {Button} from "../components/ui/button";
 import Header from "./Header";
 import Logo  from "../components/logo/logo";
@@ -42,13 +44,7 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
               className="h-full w-full rounded-[inherit]"
             >
               <div className="table">
-                <div className="flex flex-col space-y-3">
-                  <a  href="/">Home</a>
-                  <a  href="/Login">Login</a>
-                  <a  href="/Register">Register</a>
-                  <a  href="/logout">Logout</a>
-                  <a  href="/docs/figma">Figma</a>
-                </div>
+                <SideMenu />
               </div>
             </div>
           </SheetDescription>
