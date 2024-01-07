@@ -80,7 +80,7 @@
   -webkit-animation: dash 2.5s infinite linear forwards;
 
 }
-.dotmap {
+/* .dotmap {
   opacity: 1;
 }
 .dotmap circle {
@@ -88,8 +88,12 @@
 }
 .dotmap circle animate {
   transform: translate(0,0) !important;
+} */
+.loading #pulsar{
+  stroke-dasharray:281;
+  animation: dash 2.5s infinite linear forwards;
+  -webkit-animation: dash 2.5s infinite linear forwards;
 }
-
 /*Animation*/
 @-webkit-keyframes dash {
   from {
