@@ -1,4 +1,6 @@
 node_modules
 dist
 coverage-ts
+access.log 
+error.log 
 *.env
