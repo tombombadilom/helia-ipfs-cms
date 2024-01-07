@@ -10,6 +10,10 @@ const links: Link[] = [
     name: "Home",
     link: "/"
   },
+   {
+    name: "About",
+    link: "/About"
+  },
   {
     name: "Login",
     link: "/Login"

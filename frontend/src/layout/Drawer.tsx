@@ -33,11 +33,11 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
         <SheetTrigger><Menu/></SheetTrigger>
       </Header>
       {children}
-      <SheetContent side={side} className="w-[400px] sm:w-[540px]">
+      <SheetContent side={side} className="w-[200px] md:w-[140px]">
         <SheetHeader>
           <SheetTitle>
-            <Logo width={100} height={100} />
-            Helia IPFS CMS
+            <img src="/icon/mstile-150x150.png" alt="Helia IPFS CMS" className="mx-auto h-[150px] md:h-[100px]" />
+            <p className="mt-6 text-center text-1xl  text-gray-300">Helia IPFS CMS</p>
           </SheetTitle>
           <SheetDescription>
             <div data-radix-scroll-area-viewport=""

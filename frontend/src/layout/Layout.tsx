@@ -1,6 +1,6 @@
 import React, { lazy, ReactNode } from "react";
+import { Toaster } from "../components/ui/toaster"
 
-const Header = lazy(() => import("./Header"));
 const Footer = lazy(() => import("./Footer"));
 const Drawer = lazy(() => import("./Drawer"));
 
@@ -16,6 +16,7 @@ const Layout = ({ children }: { children: ReactNode }) => (
 		<Drawer>
 			{children}
 		</Drawer>
+		<Toaster />
 		<Footer />
 	</div>
 );

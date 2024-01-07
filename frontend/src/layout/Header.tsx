@@ -23,7 +23,7 @@ const Header = ({children}): ReactElement => {
   const navigate: NavigateFn = useNavigate();
 
   return (
-    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh">
+    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh bg-primary text-primary-foreground">
       <MenubarMenu>
        {children}
       </MenubarMenu>
