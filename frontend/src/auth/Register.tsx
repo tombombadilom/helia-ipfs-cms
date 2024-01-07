@@ -29,7 +29,6 @@ const formSchema = z.object({
 })
 
 const Register = () => {
-  const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,14 +36,14 @@ const Register = () => {
       email: "",
       password: ""
     },
-  });
+  })
  
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
-  };
+  }
 
   return (
     <div className="flex min-h-full flex-col justify-center py-12 px-6 lg:px-8">

@@ -39,7 +39,7 @@ const LoginForm: React.FC = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
-  };
+  }
 
   return (
     <div className="flex min-h-full flex-col justify-center py-12 px-6 lg:px-8">
