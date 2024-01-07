@@ -11,6 +11,7 @@ const Logout = lazy(() => import("./auth/Logout.tsx"));
 const Register = lazy(() => import("./auth/Register.tsx"));
 const Home = lazy(() => import("./page/Home"));
 const About = lazy(() => import("./page/About"));
+const ImagesUpload = lazy(() => import("./lib/ImagesUpload.tsx"));
 
 const MyRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const MyRoutes = () => {
           <Route path="/Login" element={<Login />} />
           <Route path="/Logout" element={<Logout />} />
           <Route path="/Register" element={<Register />} />
+          <Route path="/Upload" element={<ImagesUpload />} />
           <Route path="/Map" element={<MapLoading />} />
         </Routes>
       </Layout>

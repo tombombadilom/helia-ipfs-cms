@@ -6,10 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div
-      className="w-screen h-screen rounded-lg bg-cover bg-no-repeat p-12 text-center"
-      style={{
-        backgroundImage: `url('https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg')`
-      }}
+      className="home w-screen h-screen rounded-lg bg-cover bg-no-repeat p-12 text-center"
     >
       <div
         className="bg-fixed p-1 rounded-lg"

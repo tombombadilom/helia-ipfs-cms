@@ -80,6 +80,13 @@
   -webkit-animation: dash 2.5s infinite linear forwards;
 
 }
+.home {
+  background-image: url('assets/ipfs.png');
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:fixed;
+}
 /* .dotmap {
   opacity: 1;
 }

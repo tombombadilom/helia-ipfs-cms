@@ -27,6 +27,10 @@ const links: Link[] = [
     link: "/logout"
   },
   {
+    name: "Upload",
+    link: "/Upload"
+  },
+  {
     name: "Map",
     link: "/Map"
   }
