@@ -1,7 +1,8 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css'
 import { ThemeProvider } from './lib//theme'
-import { ErrorBoundary, loading } from './lib/loading'
+import loading  from './lib/loading'
+import { ErrorBoundary } from './lib/ErrorBoundary';
 
 const Routes = lazy(() => import('./Routes'));
 
