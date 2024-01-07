@@ -19,6 +19,6 @@ This is a simple implementation of a simple react and node.js cms written in typ
 - Typescript
 - Eslint
 - Jest
-- Hellia
+- Helia
 - ...
 
