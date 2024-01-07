@@ -1,212 +1,118 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../components/ui/form";
+
+const formSchema = z.object({
+  email: z.string().email({
+    message: "Email is invalid.",
+  }),
+  name: z.string().min(4, {
+    message: "Password must be at least 4 characters.",
+  }),
+  password: z.string().min(12, {
+    message: "Password must be at least 12 characters.",
+  }),
+})
 
 const Register = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      password: ""
+    },
+  });
+ 
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values)
+  };
+
   return (
-    <>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Join us Now!</h1>
-            <p className="py-6">Enter your credentials to get access account.</p>
-          </div>
-        </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body" action="#">
-            <div className="flex flex-col mb-5">
-              <label
-                htmlFor="name"
-                className="mb-1 text-xs tracking-wide text-gray-600"
-                >Name:</label
-                >
-                <div className="relative">
-                  <div
-                    className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    absolute
-                    left-0
-                    top-0
-                    h-full
-                    w-10
-                    text-gray-400
-                    "
-                  >
-                    <i className="fas fa-user text-blue-500"></i>
-                  </div>
-
-                  <input
-                    id="name"
-                    type="text"
-                    name="name"
-                    className="
-                    text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    rounded-2xl
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-blue-400
-                    "
-                    placeholder="Enter your name"
-                  />
-                </div>
-            </div>
-            <div className="flex flex-col mb-5">
-              <label
-                htmlFor="email"
-                className="mb-1 text-xs tracking-wide text-gray-600"
-                >E-Mail Address:</label
-                >
-                <div className="relative">
-                  <div
-                    className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    absolute
-                    left-0
-                    top-0
-                    h-full
-                    w-10
-                    text-gray-400
-                    "
-                  >
-                    <i className="fas fa-at text-blue-500"></i>
-                  </div>
-
-                  <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    className="
-                    text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    rounded-2xl
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-blue-400
-                    "
-                    placeholder="Enter your email"
-                  />
-                </div>
-            </div>
-            <div className="flex flex-col mb-6">
-              <label
-                htmlFor="password"
-                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                >Password:</label
-                >
-                <div className="relative">
-                  <div
-                    className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    absolute
-                    left-0
-                    top-0
-                    h-full
-                    w-10
-                    text-gray-400
-                    "
-                  >
-                    <span>
-                    <i className="fas fa-lock text-blue-500"></i>
-                    </span>
-                  </div>
-
-                  <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    className="
-                    text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    rounded-2xl
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-blue-400
-                    "
-                    placeholder="Enter your password"
-                  />
-                </div>
-            </div>
-
-            <div className="flex w-full">
-              <button
-                id="submit"
-                type="submit"
-                className="
-                flex
-                mt-2
-                items-center
-                justify-center
-                focus:outline-none
-                text-white text-sm
-                sm:text-base
-                bg-blue-500
-                hover:bg-blue-600
-                rounded-2xl
-                py-2
-                w-full
-                transition
-                duration-150
-                ease-in
-                "
-                >
-                <span className="mr-2 uppercase">Sign Up</span>
-                <span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    >
-                    <path
-                      d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </form>
-        </div>
+    <div className="flex min-h-full flex-col justify-center py-12 px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" />
+        <p className="mt-6 text-center text-1xl  text-gray-300">Helia IPFS CMS</p>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register to your account</h2>
       </div>
-      <div className="flex justify-center items-center mt-6">
-        <div
-          className="
-          inline-flex
-          items-center
-          text-gray-700
-          font-medium
-          text-xs text-center
-          "
-          >
-          <span className="ml-2"
-          >You have an account?
-          <a
-            onClick={() => navigate('/login')}
-            className="text-xs ml-2 text-blue-500 font-semibold"
-            >Login here</a
-          ></span
-          >
-        </div>
+      
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="John Doe" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is your registering name.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="me@email.com" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is your registering email.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input placeholder="°°°°°°°°°°°°" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is your registering password.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+            <Button
+              type="submit"
+              className="w-full flex justify-center border-gray-300 rounded-md hadow-sm text-sm font-medium text-white bg-indigo-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-sm"
+            >Submit</Button>
+        </form>
+      </Form>
       </div>
-    </>
+    </div>
   )
 }
 export default Register;
