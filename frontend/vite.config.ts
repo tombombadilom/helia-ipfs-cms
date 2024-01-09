@@ -1,10 +1,10 @@
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
+import checker from "vite-plugin-checker"
 import type { ManifestOptions, VitePWAOptions } from 'vite-plugin-pwa'
 import { VitePWA } from 'vite-plugin-pwa'
 import replace from '@rollup/plugin-replace'
-import terser from '@rollup/plugin-terser'
 
 /**
  * Generates the Vite configuration.
@@ -45,8 +45,8 @@ const generateConfig = (
     },
     plugins: [
       react({ swc: true }), 
+      checker({ typescript: true }),
       svgr(), 
-      terser(),
       VitePWA(pwaOptions),
       replace(replaceOptions),
     ]
@@ -97,7 +97,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   },
   devOptions: {
     enabled: process.env.SW_DEV === 'true',
-        /* when using generateSW the PWA plugin will switch to classic */
+        /* when using generateSW, the PWA plugin will switch to classic */
         type: 'module',
         navigateFallback: 'index.html',
       },
