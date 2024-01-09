@@ -1,27 +1,42 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "module": "NodeNext",
+    "types": ["node", "jest", "express"],
     "outDir": "./dist",
-    "target": "ES2021",
+    "target": "ESNext",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
-
     /* Bundler mode */
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": false,
+    "moduleResolution": "NodeNext",
+    "baseUrl": "./", // this should be set to your source directory where your modules are located  
+    "paths": {
+      "*": [
+        "src/*"
+      ] // adjust if your source files are in a different directory
+    },
+    // "allowImportingTsExtensions": true,
+    "declaration": true,
+    // "composite": false,
+    "emitDeclarationOnly": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-
     /* Linting */
     "strict": true,
+    "checkJs": true,
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-
     /* Other options */
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "removeComments": true
   },
-  "include": ["src"],
+  "include": ["src/**/*", "tests/**/*"],
 }
+
