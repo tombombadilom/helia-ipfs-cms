@@ -1,3 +1,4 @@
+import React from "react"
 import { Moon, Sun } from "lucide-react"
 
 import { Button } from "../components/ui/button"
@@ -7,13 +8,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu"
-import { useTheme } from "./theme"
+import { useTheme } from "./themeUtils"
 
-type ModeToggleProps = {
-  // Add any required props here
-}
 
-export function ModeToggle(props: ModeToggleProps): JSX.Element {
+
+export function ModeToggle(): JSX.Element {
   const { setTheme } = useTheme()
 
   return (

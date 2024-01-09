@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Sheet,
   SheetContent,
@@ -10,10 +9,7 @@ import {
 } from "../components/ui/sheet"
 import { Menu } from 'lucide-react';
 import SideMenu from './Menu';
-
-import {Button} from "../components/ui/button";
 import Header from "./Header";
-import Logo  from "../components/logo/logo";
 
 /**
  * Renders the logo component.
@@ -26,7 +22,6 @@ type SheetProps = {
 
 const MySheet: React.FC<SheetProps> = ({ children }) => {
   const side = 'left';
-  const navigate = useNavigate();
   return (
     <Sheet key={side}>
       <Header>

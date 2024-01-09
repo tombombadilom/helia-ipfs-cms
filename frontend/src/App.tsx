@@ -1,6 +1,6 @@
 import React, {lazy, Suspense} from 'react';
 import './App.css'
-import { ThemeProvider } from './lib//theme'
+import { ThemeProvider } from './lib//themeProvider'
 import loading  from './lib/loading'
 import { ErrorBoundary } from './lib/ErrorBoundary';
 

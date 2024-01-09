@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useDropzone, DropzoneOptions, DropzoneRootProps, DropzoneInputProps } from 'react-dropzone';
+import { useDropzone, DropzoneState, FileWithPath } from 'react-dropzone';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 
@@ -9,13 +9,14 @@ import { Label } from '../components/ui/label';
  * @returns {JSX.Element} The rendered file upload component.
  */
 function FilesUpload(): JSX.Element {
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  const onDrop = useCallback((acceptedFiles: FileWithPath[]): void => {
     // Do something with the files
     console.log('accepted', acceptedFiles);
   }, []);
-
-  const { getRootProps, getInputProps, open }: DropzoneOptions = useDropzone({ onDrop, noClick: true });
-
+   const { getRootProps, getInputProps }: DropzoneState = useDropzone({
+    onDrop,
+    noClick: true,
+   });
   return (
     <div className="w-screen h-screen rounded-lg p-12 text-center">
       <div className="flex-initial items-center justify-center w-full h-screen">
@@ -55,4 +56,5 @@ function FilesUpload(): JSX.Element {
     </div>
   );
 }
+
 export default FilesUpload;

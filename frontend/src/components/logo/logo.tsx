@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Logo = ({width, height, color}) => {
+interface LogoProps {
+  width: number;
+  height: number;
+  color: string;
+}
+
+const Logo: FC<LogoProps> = ({ width, height, color }: LogoProps) => {
   return (
     <svg
       version="1.0"

@@ -1,92 +1,49 @@
-import React,{ createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useEffect, useState } from "react";
+export type Theme = "dark" | "light" | "system";
 
-type Theme = "dark" | "light" | "system";
-
-type Props = {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-};
-
-type ContextValue = {
+export type ContextValue = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
 };
-
-type ThemeState = {
-  theme: Theme;
-};
-
-type ThemeAction = {
-  type: "SET_THEME";
-  payload: Theme;
-};
-
-const initialState: ThemeState = {
-  theme: "system",
-};
-
-const themeReducer = (state: ThemeState, action: ThemeAction): ThemeState => {
-  switch (action.type) {
-    case "SET_THEME":
-      return {
-        ...state,
-        theme: action.payload,
-      };
-    default:
-      return state;
-  }
+type Props = {
+  children: React.ReactNode;
+  defaultTheme?: Theme;
+  storageKey?: string;
 };
 
 const ThemeContext = createContext<ContextValue>({
-  theme: initialState.theme,
-  setTheme: () => {},
+  theme: "dark", // This is the default value for the context
+  setTheme: () => {}, // No-op function for default
 });
 
-const ThemeProvider = ({ children, defaultTheme = "system" }: Props): JSX.Element => {
-  const [state, dispatch] = useReducer<React.Reducer<ThemeState, ThemeAction>>(themeReducer, {
-    theme: defaultTheme,
-  });
-
-  const applyTheme = (theme: Theme) => {
-    const rootElement = window.document.documentElement;
-    rootElement.classList.remove("light", "dark");
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-
-      rootElement.classList.add(systemTheme);
-    } else {
-      rootElement.classList.add(theme);
-    }
-  };
+const ThemeProvider = ({ children, defaultTheme = "light", storageKey = "theme" }: Props): JSX.Element => {
+  const [theme, setTheme] = useState<Theme>(
+    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+  );
 
   useEffect(() => {
-    applyTheme(state.theme);
-  }, [state.theme]);
+    const applyTheme = (theme: Theme) => {
+      const rootElement = window.document.documentElement;
+      rootElement.classList.remove("light", "dark");
 
-  const setTheme = (theme: Theme) => {
-    dispatch({ type: "SET_THEME", payload: theme });
-  };
+      let effectiveTheme = theme;
+      if (theme === "system") {
+        effectiveTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
 
-  const contextValue: ContextValue = {
-    theme: state.theme,
-    setTheme,
-  };
+      rootElement.classList.add(effectiveTheme);
+      localStorage.setItem(storageKey, effectiveTheme);
+    };
 
-  return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
+    applyTheme(theme);
+  }, [theme, storageKey]);
+
+  // Here we make sure to return a JSX element that provides the theme context to children components
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 
-
-const useTheme = (): ContextValue => {
-  const context = useContext(ThemeContext);
-
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-
-  return context;
-};
-
-export { ThemeProvider, useTheme };
+export { ThemeProvider, ThemeContext };

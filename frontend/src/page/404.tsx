@@ -1,9 +1,7 @@
 import React from 'react'
-type NotFoundProps = {
-  // Add any necessary prop types here
-};
 
-const NotFound = (props: NotFoundProps): JSX.Element => {
+
+const NotFound = (): JSX.Element => {
   // Update the docstring to reflect the types
   /**
    * Render the 404 page component.

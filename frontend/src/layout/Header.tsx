@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-import { useNavigate, NavigateFn } from 'react-router-dom';
+import React, { ReactElement, ReactNode } from 'react';
+
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -17,11 +17,11 @@ import {
 } from "../components/ui/menubar";
 import { ModeToggle } from '../lib/mode-toggle';
 import Auth from "../auth/Auth";
+type HeaderProps = {
+  children: ReactNode;
+};
 
-
-const Header = ({children}): ReactElement => {
-  const navigate: NavigateFn = useNavigate();
-
+const Header = ({ children}:HeaderProps): ReactElement => {
   return (
     <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh bg-primary text-primary-foreground">
       <MenubarMenu>
