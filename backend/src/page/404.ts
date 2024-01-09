@@ -3,6 +3,4 @@
  *
  * @returns { string } The customized error message.
  */
-export const handle404 = (slug: string): string => {
-  return slug +"404 Not Found";
-};
+export const handle404 = (slug: string): string => `${slug}404 Not Found`;

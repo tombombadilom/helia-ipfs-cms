@@ -41,9 +41,9 @@ export const login = (req: Request<unknown, unknown, LoginRequestBody>, res: Res
   const loginSuccessful = true; // Replace with your login logic
 
   if (loginSuccessful) {
-    res.json({ success: true, message: "Login successful", error: null });
+    res.json({ success: true, message: 'Login successful', error: null });
   } else {
-    res.json({ success: false, message: "Login failed", error: null });
+    res.json({ success: false, message: 'Login failed', error: null });
   }
 };
 

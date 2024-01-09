@@ -1,3 +1,1 @@
-export const Home = () => {
-  return "Hello World!";
-}
+export const Home = () => 'Hello World!';
