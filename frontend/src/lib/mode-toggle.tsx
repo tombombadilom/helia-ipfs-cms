@@ -20,7 +20,7 @@ export function ModeToggle(): JSX.Element {
     >
       <DropdownMenuTrigger asChild>
         <Button
-          className="primary-background primary-foreground dark:primary-background dark:primary-foreground"
+          className="bg-transparent dark:bg-transparent primary-foreground dark:primary-background dark:primary-foreground"
           variant="outline"
           size="icon">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

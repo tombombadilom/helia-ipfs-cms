@@ -23,7 +23,7 @@ type HeaderProps = {
 
 const Header = ({ children}:HeaderProps): ReactElement => {
   return (
-    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh bg-primary text-primary-foreground">
+    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh ng-transparent dark:bg-transparent text-primary-foreground">
       <MenubarMenu>
        {children}
       </MenubarMenu>
