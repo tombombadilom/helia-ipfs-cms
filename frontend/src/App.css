@@ -4,7 +4,8 @@
  
 @layer base {
   :root {
-    --background: transârent;
+    --bg: hsl(0, 0%, 90%); /* Example light background color */
+    --background: white;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -34,14 +35,16 @@
  
     --radius: 0.5rem;
   }
- 
+  .element {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
   .dark {
-    --background: 222.2 84% 4.9%;
+    --bg: hsl(0, 0%, 10%); /* Example dark background color */
+    --background: white;
     --foreground: 210 40% 98%;
- 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
  
@@ -71,9 +74,16 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-transparent text-foreground;
   }
 }
+/* buttons */
+
+
+:root:has(button:active) {
+	--size: 300px;
+}
+
 .loading #pulsar{
   stroke-dasharray:281;
   animation: dash 2.5s infinite linear forwards;
