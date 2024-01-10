@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="w-screen h-screen text-center">
+    <div className="w-screen h-screen text-center bg-transparent dark:bg-transparent ">
       <div className='loading'>
         {/* SVG path to display a loading animation */}
         <svg

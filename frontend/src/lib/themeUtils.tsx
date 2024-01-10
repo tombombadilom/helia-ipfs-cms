@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext, ContextValue } from "./theme"; // Make sure the import path is correct
+import { ThemeContext, ContextValue } from './theme'; 
 
 /**
  * Returns the context value of the current theme.

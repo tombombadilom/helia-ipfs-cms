@@ -8,7 +8,7 @@ import logger from '../logger.ts';
  * @param req - The request object
  * @param res - The response object
  */
-export const handleLogin = async (req: Request, res: Response) => {
+const handleLogin = async (req: Request, res: Response) => {
   try {
     const result = await login(req, res);
     res.json(result);
@@ -22,3 +22,4 @@ export const handleLogin = async (req: Request, res: Response) => {
     res.status(500).json({ error: '' });
   }
 };
+export default handleLogin;

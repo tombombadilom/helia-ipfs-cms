@@ -15,7 +15,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "../components/ui/menubar";
-import { ModeToggle } from '../lib/mode-toggle';
+import ModeToggle from '../lib/mode-toggle';
 import Auth from "../auth/Auth";
 type HeaderProps = {
   children: ReactNode;
@@ -23,7 +23,7 @@ type HeaderProps = {
 
 const Header = ({ children}:HeaderProps): ReactElement => {
   return (
-    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh bg-primary text-primary-foreground">
+    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh ng-transparent dark:bg-transparent text-primary-foreground">
       <MenubarMenu>
        {children}
       </MenubarMenu>

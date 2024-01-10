@@ -16,7 +16,7 @@ const slides = [slide1, slide2, slide3, slide4];
 const About = () => {
   return (
     <div
-      className="w-screen h-basis-1/2 rounded-lg bg-cover bg-no-repeat p-12 text-center"
+      className="w-screen h-basis-1/2 rounded-lg bg-transparent dark:bg-transparent bg-cover bg-no-repeat p-12 text-center"
     >
       <h1>About</h1>
       <Carousel

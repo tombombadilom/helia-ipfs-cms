@@ -21,7 +21,6 @@ const serve = () => {
 
   // Close the Mongoose connection, when receiving SIGINT
   process.on('SIGINT', async () => {
-    console.log('\n');
     logger.info('Gracefully shutting down');
     process.exit(0);
   });

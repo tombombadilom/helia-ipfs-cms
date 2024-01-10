@@ -9,7 +9,9 @@ const NotFound = (): JSX.Element => {
    * @returns {JSX.Element} The rendered component.
    */
   return (
-    <div>
+    <div
+      className="bg-transparent dark:bg-transparent"
+    >
       <h2>404</h2>
       <div>Page not found</div>
     </div>

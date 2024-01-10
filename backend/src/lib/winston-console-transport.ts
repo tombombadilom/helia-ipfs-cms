@@ -1,13 +1,6 @@
+/* eslint-disable no-console */
 import Transport from 'winston-transport';
 
-/**
- * https://stackoverflow.com/a/41407246
- * Log level escape codes
- */
-
-/**
- * Log level escape codes
- */
 const levelStyleMap: { [key: string]: string } = {
   error: '\x1b[41m%s\x1b[0m',
   warn: '\x1b[33m%s\x1b[0m',
@@ -18,10 +11,26 @@ const levelStyleMap: { [key: string]: string } = {
 };
 
 export default class ConsoleLogTransport extends Transport {
-  log(info?: { consoleLoggerOptions?: { label?: string }; level?: string; message?: string; stack?: string }): void {
-    const label = info?.consoleLoggerOptions?.label?.toUpperCase() ?? info?.level?.toUpperCase();
-    const finalMessage = `[${new Date().toISOString()}] [${label}] ${info?.message}`;
-    console.log(levelStyleMap[info?.level ? info.level : 'info'], finalMessage);
-    info?.stack && console.log('\t', info?.stack);
+  /**
+   * Log method with strongly typed arguments and return type.
+   * @param info - Information about the log message.
+   */
+  log(
+    info?: {
+      consoleLoggerOptions?: { label?: string };
+      level?: string;
+      message?: string;
+      stack?: string;
+    },
+  ): void {
+    const {
+      label, level, message, stack,
+    } = info?.consoleLoggerOptions ?? {};
+    // eslint-disable-next-line max-len
+    const finalLabel = label?.toUpperCase() ?? levelStyleMap[level?.toUpperCase() as keyof typeof levelStyleMap];
+    const levelStyle = levelStyleMap[level?.toUpperCase() as keyof typeof levelStyleMap];
+    const finalMessage = `[${new Date().toISOString()}] [${finalLabel}] ${message}`;
+    console.log(level ? levelStyle : levelStyleMap.info, finalMessage);
+    console.log('\t', stack ?? '');
   }
 }
