@@ -1,1 +1,2 @@
-export const Home = () => 'Hello World!';
+const Home = () => 'Hello World!';
+export default Home;

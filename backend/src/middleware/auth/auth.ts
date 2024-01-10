@@ -14,12 +14,17 @@ interface LoginRequestBody {
 /**
  * Registers a user with the provided information.
  *
- * @param {Request<unknown, unknown, RegisterRequestBody>} req - The request object containing the user's registration data.
+ * @param {Request<unknown, unknown, RegisterRequestBody>} req
+ *  - The request object containing the user's registration data.
  * @param {Response} res - The response object used to send a success message.
  * @return {void} - This function does not return a value.
  */
-export const register = (req: Request<unknown, unknown, RegisterRequestBody>, res: Response): void => {
+export const register = (
+  req: Request<unknown, unknown, RegisterRequestBody>,
+  res: Response,
+): void => {
   const { name, password, email } = req.body;
+  // eslint-disable-next-line no-console
   console.log(name, password, email);
   res.send('Registration successful!');
 };
@@ -27,12 +32,14 @@ export const register = (req: Request<unknown, unknown, RegisterRequestBody>, re
 /**
  * Logs in a user.
  *
- * @param {Request<unknown, unknown, LoginRequestBody>} req - the request object containing the login details
+ * @param {Request<unknown, unknown, LoginRequestBody>} req
+ * - the request object containing the login details
  * @param {Response} res - the response object to send the login result
  * @return {void} - This function does not return anything
  */
 export const login = (req: Request<unknown, unknown, LoginRequestBody>, res: Response): void => {
   const { email, password } = req.body;
+  // eslint-disable-next-line no-console
   console.log(email, password);
 
   // Perform login logic here
@@ -48,14 +55,19 @@ export const login = (req: Request<unknown, unknown, LoginRequestBody>, res: Res
 };
 
 /**
- * Logs out a user by invalidating their session.
+ * Logout function.
  *
- * @param {Request<unknown, unknown, { email: string, sessionId: number }>} req - The request object containing the user's email and session ID.
- * @param {Response} res - The response object.
- * @return {void} This function does not return anything.
+ * @param req - The request object.
+ * @param res - The response object.
+ * @returns void
  */
-export const logout = (req: Request<unknown, unknown, { email: string, sessionId: number }>, res: Response): void => {
+const logout = (
+  req: Request<unknown, unknown, { email: string, sessionId: number }>,
+  res: Response,
+): void => {
   const { email, sessionId } = req.body;
+  // eslint-disable-next-line no-console
   console.log(email, sessionId);
   res.send('Logout successful!');
 };
+export default logout;
