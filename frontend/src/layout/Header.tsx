@@ -15,7 +15,7 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "../components/ui/menubar";
-import { ModeToggle } from '../lib/mode-toggle';
+import ModeToggle from '../lib/mode-toggle';
 import Auth from "../auth/Auth";
 type HeaderProps = {
   children: ReactNode;
