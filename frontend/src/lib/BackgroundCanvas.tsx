@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-
+import { useTheme } from "./themeUtils";
+import { ContextValue } from './theme'
 interface CircleProps {
   radius: number;
   speed: number;
@@ -55,9 +56,15 @@ class Circle {
   }
 }
 
-function setupCircles(circlesRef: React.MutableRefObject<Circle[]>, width: number, height: number) {
+function setupCircles(circlesRef: React.MutableRefObject<Circle[]>, width: number, height: number, theme: ContextValue) {
   const numberOfCircles = 40;
   circlesRef.current = [];
+  
+  // Assuming the document has a class 'dark' when dark mode is enabled
+  
+  const isDarkMode: boolean = theme.isDarkMode;
+  
+  const style = getComputedStyle(document.documentElement);
 
   for (let i = 0; i < numberOfCircles; i++) {
     let opacity = 0.25 + Math.random() * 0.4;
@@ -70,31 +77,27 @@ function setupCircles(circlesRef: React.MutableRefObject<Circle[]>, width: numbe
     let color: string;
     const colorRandomizer = (i / numberOfCircles) * 100;
 
-    if (colorRandomizer <= 40) {
-      color = "rgba(26, 99, 142,";
-    } else if (colorRandomizer <= 80) {
-      color = "rgba(0, 125, 105,";
-    } else {
-      color = "rgba(21, 216, 223,";
-      size /= 2;
-      radius /= 2;
-      opacity /= 2;
-    }
-
+   // Use CSS variables according to the color randomizer and the current mode (dark or light)
+   if (colorRandomizer <= 40) {
+     color = `rgba(${isDarkMode ? style.getPropertyValue('--color-primary-dark') : style.getPropertyValue('--color-primary')},`;
+   } else if (colorRandomizer <= 80) {
+     color = `rgba(${isDarkMode ? style.getPropertyValue('--color-secondary-dark') : style.getPropertyValue('--color-secondary')},`;
+   } else {
+     color = `rgba(${isDarkMode ? style.getPropertyValue('--color-tertiary-dark') : style.getPropertyValue('--color-tertiary')},`;
+     size /= 2;
+     radius /= 2;
+     opacity /= 2;
+   }
     const circle = new Circle({ radius, speed, size, xPos: randomX, yPos: randomY, opacity, color });
     circlesRef.current.push(circle);
   }
 }
 
-
-
 const BackgroundCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const circlesRef = useRef<Circle[]>([]);
-
+  const theme: ContextValue = useTheme();
   const drawAndUpdate = useCallback((width: number, height: number) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const circlesRef = useRef<Circle[]>([]);
     const canvas = canvasRef.current as HTMLCanvasElement;
     const circles = circlesRef.current as Circle[];
 
@@ -132,7 +135,7 @@ const BackgroundCanvas: React.FC = () => {
 
       const context = canvas.getContext('2d');
       if (context) {
-        setupCircles(circlesRef, width, height);
+        setupCircles(circlesRef, width, height, theme);
         drawAndUpdate(width, height);
 
         window.addEventListener('resize', handleResize);
@@ -142,9 +145,21 @@ const BackgroundCanvas: React.FC = () => {
         };
       }
     }
-  }, [handleResize, resizeCanvas]);
+  }, [drawAndUpdate, handleResize, theme]);
 
-  return <canvas ref={canvasRef} id="bg" />;
+  return <canvas
+    ref={canvasRef}
+    id="bgcanvas"
+    style={{
+      position: 'fixed', // Modifier ici de `absolute` à `fixed`
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: -1, // S'assurer que le z-index est bas pour être en arrière-plan
+      backgroundColor: 'var(--background)',
+    }}
+  />;
 };
 
 export default BackgroundCanvas;

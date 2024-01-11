@@ -4,6 +4,7 @@ export type Theme = "dark" | "light" | "system";
 export type ContextValue = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  isDarkMode: boolean;
 };
 type Props = {
   children: React.ReactNode;
@@ -13,14 +14,15 @@ type Props = {
 
 const ThemeContext = createContext<ContextValue>({
   theme: "dark", // This is the default value for the context
-  setTheme: () => {}, // No-op function for default
+  setTheme: () => { }, // No-op function for default
+  isDarkMode: true,
 });
 
 const ThemeProvider = ({ children, defaultTheme = "light", storageKey = "theme" }: Props): JSX.Element => {
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
-
+  const isDarkMode = theme === 'dark';
   useEffect(() => {
     const applyTheme = (theme: Theme) => {
       const rootElement = window.document.documentElement;
@@ -40,7 +42,7 @@ const ThemeProvider = ({ children, defaultTheme = "light", storageKey = "theme" 
 
   // Here we make sure to return a JSX element that provides the theme context to children components
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, isDarkMode }}>
       {children}
     </ThemeContext.Provider>
   );

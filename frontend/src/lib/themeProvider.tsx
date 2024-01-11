@@ -13,7 +13,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
   storageKey,
 }) => {
   const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(defaultTheme);
-
+  const isDarkMode = theme === 'dark';
   useEffect(() => {
     const storedTheme = localStorage.getItem(storageKey);
     if (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system') {
@@ -43,6 +43,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
   const contextValue: ContextValue = {
     theme,
     setTheme,
+    isDarkMode,
   };
 
   return (
