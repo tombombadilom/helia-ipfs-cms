@@ -10,16 +10,22 @@ import BackgroundCanvas from './lib/BackgroundCanvas';
 const Routes = lazy(() => import('./Routes'));
 
 // Define the App component with ErrorBoundary and Suspense for handling loading and errors
-const App = () => (
-  <ErrorBoundary>
-    <Suspense fallback={loading()}>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <BackgroundCanvas />
-        {/* <CanvasBackground /> */}
-        <Routes />
-      </ThemeProvider>
-    </Suspense>
-  </ErrorBoundary>
-);
+const App = () => {
+  const themeStorageKey = 'vite-ui-theme';
+  type ThemeOption = 'light' | 'dark' | 'system';
+  const storedTheme: ThemeOption | null = localStorage.getItem(themeStorageKey) as ThemeOption | null;
+  const defaultTheme: ThemeOption = storedTheme && ['light', 'dark', 'system'].includes(storedTheme) ? storedTheme : 'dark';
+  return (
+    <ErrorBoundary>
+      <Suspense fallback={loading()}>
+        <ThemeProvider defaultTheme={defaultTheme} storageKey={themeStorageKey}>
+          <BackgroundCanvas />
+          {/* <CanvasBackground /> */}
+          <Routes />
+        </ThemeProvider>
+      </Suspense>
+    </ErrorBoundary>
+  )
+};
 
 export default App;
