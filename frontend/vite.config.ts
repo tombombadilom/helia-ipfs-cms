@@ -5,6 +5,7 @@ import checker from "vite-plugin-checker"
 import type { ManifestOptions, VitePWAOptions } from 'vite-plugin-pwa'
 import { VitePWA } from 'vite-plugin-pwa'
 import replace from '@rollup/plugin-replace'
+import { comlink } from "vite-plugin-comlink";
 
 /**
  * Generates the Vite configuration.
@@ -47,6 +48,7 @@ const generateConfig = (
       react({ swc: true }), 
       checker({ typescript: true }),
       svgr(), 
+      comlink(),
       VitePWA(pwaOptions),
       replace(replaceOptions),
     ]

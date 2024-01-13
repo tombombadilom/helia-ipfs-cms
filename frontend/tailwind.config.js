@@ -17,6 +17,14 @@ module.exports = {
       },
     },
     extend: {
+      height: {
+        Nav: "var(--nav-height)",
+        Footer: "var(--footer-height)",
+      },
+      width: {
+        drawerWidth: "var(--drawer-width)",
+        drawerWidthMobile: "var(--drawer-widthMobile)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -36,8 +44,8 @@ module.exports = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "hsl(var(-Muted))",
+          foreground: "hsl(var(-Muted-foreground))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
