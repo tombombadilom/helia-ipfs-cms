@@ -18,11 +18,11 @@ function FilesUpload(): JSX.Element {
     noClick: true,
    });
   return (
-    <div className="w-screen h-screen rounded-lg p-12 text-center">
-      <div className="flex-initial items-center justify-center w-full h-screen">
+     <div className="flex flex-col justify-center w-1/2 bg-white p-5 min-h-[45dvh] rounded-xl bg-opacity-25 backdrop-filter backdrop-blur-lg">
+      <div className="flex-initial items-center justify-center">
         <Label
           htmlFor="dropzone-file"
-          className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+          className="flex flex-col items-center justify-center h-[30dvh] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
         >
           <div
             {...getRootProps()}

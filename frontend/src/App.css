@@ -3,44 +3,123 @@
 @tailwind utilities;
  
 @layer base {
-  :root {
-    color-scheme: light;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  html.light,
+  html[data-theme="light"], 
+  :root[data-theme="light"], 
+  .light 
+  {
     --background: hsla(0, 0%, 100%, 90%);
-    --foreground: 222.2 84% 4.9%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary-foreground: 210 40% 98%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --foreground: hsla(222.2, 84%, 4.9%, 1);
+    --card-foreground: hsla(222.2, 84%, 4.9%, 1);
+    --popover-foreground: hsla(222.2, 84%, 4.9%, 1);
+    --primary-foreground: hsla(210, 40%, 98%, 1);
+    --secondary-foreground: hsla(222.2, 47.4%, 11.2%, 1);
+    --tertiary-foreground: hsl(304, 47%, 11%, 1);
+    --muted-foreground: hsla(215.4, 16.3%, 46.9%, 1);
+    --accent-foreground: hsla(222.2, 47.4%, 11.2%, 1);
+    --destructive-foreground: hsla(210, 40%, 98%, 1);
+    --border: hsla(214.3, 31.8%, 91.4%, 1);
+    --input: hsla(214.3, 31.8%, 91.4%, 1);
+    --ring: hsla(222.2, 84%, 4.9%, 1);
     --radius: 0.5rem;
-    --card: 0 0% 100%;
-    --popover: 0 0% 100%;
-    --primary: 222.2 47.4% 11.2%;
-    --secondary: 210 40% 96.1%;
-    --muted: 210 40% 96.1%;
-    --accent: 210 40% 96.1%;
+    --card: hsla(0, 0%, 100%, 1);
+    --popover: hsla(0, 0%, 100%, 1);
+    --primary: hsla(222.2, 47.4%, 11.2%, 1);
+    --secondary: hsla(210, 40%, 96.1%, 1);
+    --muted: hsla(210, 40%, 96.1%, 1);
+    --accent: hsla(210, 40%, 96.1%, 1);
     --destructive: 0 84.2% 60.2%;
     --color-primary: hsla(202, 72%, 37%, 0.85); /* light mode primary color */
     --color-secondary: hsla(173, 100%, 25%, 0.85); /* light mode secondary color */
     --color-tertiary: hsla(183, 87%, 50%, 0.85); /* light mode tertiary color */
-    --nav-height: '10vh';
-    --nav-height-mobile: '10vh';
-    --footer-height: '10vh';
-    --footer-height-mobile: '10vh';
+    --nav-height: '10dvh';
+    --nav-background: hsla(202, 72%, 37%, 90%);
+    --nav-height-mobile: '10dvh';
+    --footer-height: '10dvh';
+    --footer-background: hsla(202, 72%, 37%, 1);
+    --footer-height-mobile: '10dvh';
     --drawer-width: '40vw';
     --drawer-width-mobile: '90vw';
   }
+  @media (prefers-color-scheme: light) {
+    :root {
+       --background: var(--background);
+      --foreground: var(--foreground);
+      --card-foreground: var(--card-foreground);
+      --popover-foreground: var(--popover-foreground);
+      --primary-foreground: var(--primary-foreground);
+      --secondary-foreground: var(--secondary-foreground);
+      --tertiary-foreground: var(--tertiary-foreground);
+      --muted-foreground: var(--muted-foreground);
+      --accent-foreground: var(--accent-foreground);
+      --destructive-foreground: var(--destructive-foreground);
+      --border: var(--border);
+      --input: var(--input);
+      --ring: var(--ring);
+      --radius: var(--radius);
+      --card: var(--card);
+      --popover: var(--popover);
+      --primary: var(--primary);
+      --secondary: var(--secondary);
+      --muted: var(--muted);
+      --accent: var(--accent);
+      --destructive: var(--destructive);
+      --color-primary: var(--color-primary);
+      --color-secondary: var(--color-secondary);
+      --color-tertiary: var(--color-tertiary);
+      --nav-height: var(--nav-height);
+      --nav-background: var(--nav-background);
+      --nav-height-mobile: var(--nav-height-mobile);
+      --footer-height: var(--footer-height);
+      --footer-background: var(--footer-background);
+      --footer-height-mobile: var(--footer-height-mobile);
+      --drawer-width: var(--drawer-width);
+      --drawer-width-mobile: var(--drawer-width-mobile);
 
-  .dark {
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: var(--background);
+      --foreground: var(--foreground);
+      --card-foreground: var(--card-foreground);
+      --popover-foreground: var(--popover-foreground);
+      --primary-foreground: var(--primary-foreground);
+      --secondary-foreground: var(--secondary-foreground);
+      --tertiary-foreground: var(--tertiary-foreground);
+      --muted-foreground: var(--muted-foreground);
+      --accent-foreground: var(--accent-foreground);
+      --destructive-foreground: var(--destructive-foreground);
+      --border: var(--border);
+      --input: var(--input);
+      --ring: var(--ring);
+      --radius: var(--radius);
+      --card: var(--card);
+      --popover: var(--popover);
+      --primary: var(--primary);
+      --secondary: var(--secondary);
+      --muted: var(--muted);
+      --accent: var(--accent);
+      --destructive: var(--destructive);
+      --color-primary: var(--color-primary);
+      --color-secondary: var(--color-secondary);
+      --color-tertiary: var(--color-tertiary);
+      --nav-height: var(--nav-height);
+      --nav-background: var(--nav-background);
+      --nav-height-mobile: var(--nav-height-mobile);
+      --footer-height: var(--footer-height);
+      --footer-background: var(--footer-background);
+      --footer-height-mobile: var(--footer-height-mobile);
+      --drawer-width: var(--drawer-width);
+      --drawer-width-mobile: var(--drawer-width-mobile);
+    }
+  }
+
+  html.dark,
+  html[data-theme="dark"],
+  :root[data-theme="dark"], 
+  .dark
+  {
     --background: rgb(46, 35, 90);
     --foreground: hsl(210, 40%, 98%);
     --card: hsl(222.2, 84%, 4.9%);
@@ -49,8 +128,10 @@
     --popover-foreground: hsl(210, 40%, 98%);
     --primary: hsl(210, 40%, 98%);
     --primary-foreground: hsl(222.2, 47.4%, 11.2%);
-    --secondary: hsl(217.2, 32.6%, 17.5%);
+    --secondary: hsl(217, 34%, 21%);
     --secondary-foreground: hsl(210, 40%, 98%);
+    --tertiary: hsl(217, 34%, 21%);
+    --tertiary-foreground: hsl(305, 60%, 53%);
     --muted: hsl(217.2, 32.6%, 17.5%);
     --muted-foreground: hsl(215, 20.2%, 65.1%);
     --accent: hsl(217.2, 32.6%, 17.5%);
@@ -63,7 +144,30 @@
     --color-primary: hsla(204, 60%, 27%, 0.25); /* dark mode primary color */
     --color-secondary: hsla(165, 100%, 13%, 0.25); /* dark mode secondary color */
     --color-tertiary: hsla(178, 83%, 21%, 0.25); /* dark mode tertiary color */
+    /* Autres variables de thème sombre */
   }
+  .dark .content--canvas, .dark .content--canvas canvas {
+    background-color: transparent;
+    color-scheme: dark;
+  }
+}
+body {
+    background-color: var(--background);
+    color: var(--primary-foreground);
+}
+.content--canvas {
+  background-color: transparent;
+}
+.content--canvas canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color-scheme: light;
+  z-index: 0;
+  pointer-events: none;
+  background-color: transparent;
 }
 a {
   font-weight: 500;
@@ -165,6 +269,7 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment:fixed;
+  opacity: 0.80;
 }
 /* .dotmap {
   opacity: 1;

@@ -6,7 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div
-      className="home bg-transparent dark:bg-transparent w-screen h-screen rounded-lg bg-cover bg-no-repeat p-12 text-center"
+      className="home w-2/3 bg-white-300 dark:bg-black-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40  w-screen min-h-[90dvh] rounded-lg bg-cover bg-no-repeat p-12 text-center"
     >
       <div
         className="bg-fixed p-1 rounded-lg"

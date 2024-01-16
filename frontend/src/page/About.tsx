@@ -16,29 +16,35 @@ const slides = [slide1, slide2, slide3, slide4];
 const About = () => {
   return (
     <div
-      className="w-screen h-basis-1/2 rounded-lg bg-transparent dark:bg-transparent bg-cover bg-no-repeat p-12 text-center"
+      className="w-2/3 min-h-[90dvh] bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40  bg-cover bg-no-repeat p-12 text-center"
     >
       <h1>About</h1>
       <Carousel
         opts={{
           align: "start",
         }}
-        className="mx-auto"
+        className="mx-auto bg-transparent"
       >
-        <CarouselContent>
+        <CarouselContent
+          className='bg-transparent'
+        >
           {Array.from({ length: 4 }).map((_, index) => (
-            <CarouselItem key={index} className="w-screen">
-              <div className="p-1">
+            <CarouselItem 
+              key={index} 
+              className="w-screen bg-transparent">
+              <div className="p-1 bg-transparent">
                 <Card
-                  className="bg-no-repeat bg-cover bg-center rounded-lg"
+                  className="bg-transparent bg-no-repeat bg-cover bg-center rounded-lg"
                   style={{
+                    opacity: 0.75,
                     backgroundImage: `url(${slides[index]})`
                   }}
                 >
                   <CardTitle>
                     blah
                   </CardTitle>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <CardContent 
+                    className="flex aspect-square items-center justify-center p-6">
                     <span className="text-3xl font-semibold">{index + 1}</span>
                   </CardContent>
                   <CardDescription>

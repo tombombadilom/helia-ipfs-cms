@@ -18,9 +18,9 @@ const ThemeContext = createContext<ContextValue>({
   isDarkMode: true,
 });
 
-const ThemeProvider = ({ children, defaultTheme = "light", storageKey = "theme" }: Props): JSX.Element => {
+const ThemeProvider = ({ children, defaultTheme = "dark", storageKey = "theme" }: Props): JSX.Element => {
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    () => (localStorage.getItem(storageKey) as Theme | null) || defaultTheme
   );
   const isDarkMode = theme === 'dark';
   useEffect(() => {
@@ -33,7 +33,10 @@ const ThemeProvider = ({ children, defaultTheme = "light", storageKey = "theme" 
         effectiveTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       }
 
+      console.log('Applying theme:', effectiveTheme); // Debugging output
+ 
       rootElement.classList.add(effectiveTheme);
+      rootElement.setAttribute('data-theme', effectiveTheme);
       localStorage.setItem(storageKey, effectiveTheme);
     };
 

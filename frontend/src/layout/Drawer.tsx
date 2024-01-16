@@ -27,8 +27,16 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
       <Header>
         <SheetTrigger><Menu/></SheetTrigger>
       </Header>
-      {children}
-      <SheetContent side={side} className="w-[200px] md:w-[140px]">
+      <div
+        className="flex flex-col items-center justify-center min-h-[90dvh] overflow-y-auto text-align-center"
+      >
+        {children}
+      </div>
+      
+      <SheetContent 
+        side={side} 
+        className="w-[200px] md:w-[140px]"
+      >
         <SheetHeader>
           <SheetTitle>
             <img src="/icon/mstile-150x150.png" alt="Helia IPFS CMS" className="mx-auto h-[150px] md:h-[100px]" />

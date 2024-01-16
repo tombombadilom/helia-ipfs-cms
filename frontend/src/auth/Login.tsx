@@ -42,7 +42,7 @@ const LoginForm: React.FC = () => {
   }
 
   return (
-    <div className="flex bg-transparent dark:bg-transparent min-h-full flex-col justify-center py-12 px-6 lg:px-8">
+    <div className="flex bg-opacity-15 backdrop-filter backdrop-blur-lg w-1/2 bg-white dark:primary-background dark:bg-opacity-15 dark:primary-foreground p-5 rounded-xl">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" />
         <p className="mt-6 text-center text-1xl  text-gray-300">Helia IPFS CMS</p>
@@ -51,13 +51,14 @@ const LoginForm: React.FC = () => {
       
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 primary-foreground primary-background dark:primary-foreground dark:primary-background">
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel
+                >Email</FormLabel>
                 <FormControl>
                   <Input placeholder="me@email.com" {...field} />
                 </FormControl>

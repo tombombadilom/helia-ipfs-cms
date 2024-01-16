@@ -11,7 +11,8 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "../components/ui/menubar";
-import ModeToggle from '../lib/mode-toggle';
+import ThemeSwitcher from '../lib/ThemeSwitcher';
+
 import Auth from "../auth/Auth";
 type HeaderProps = {
   children: ReactNode;
@@ -19,7 +20,8 @@ type HeaderProps = {
 
 const Header = ({ children}:HeaderProps): ReactElement => {
   return (
-    <Menubar className="w-dvh flex items-center justify-between p-2 h-dvh ng-transparent dark:bg-transparent text-primary-foreground">
+    <Menubar 
+      className="w-[100vw] min-h-[5dvh] flex items-center border-0 justify-between bg-white-300 bg-opacity-75 dark:primary-foreground dark:bg-white-300 dark:bg-opacity-15 bg-clip-padding p-1  backdrop-filter backdrop-blur-lg">
       <MenubarMenu>
        {children}
       </MenubarMenu>
@@ -33,7 +35,7 @@ const Header = ({ children}:HeaderProps): ReactElement => {
       </MenubarMenu>
      
       <MenubarMenu>
-        <ModeToggle />
+        <ThemeSwitcher />
       </MenubarMenu>
       {Auth.isUserAuthenticated() && (
         <MenubarMenu>

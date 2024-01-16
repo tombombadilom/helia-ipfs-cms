@@ -3,7 +3,7 @@ import { Github, Twitter } from 'lucide-react';
 
 const Footer: React.FC = (): ReactElement => {
   return (
-		<footer className="footer items-center bg-transparent primary-foreground-content">
+		<footer className="footer w-[100vw] min-h-[5dvh] items-center  bg-white-600 dark:bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30  primary-foreground-content">
 			<div className="bg-transparent">
 					<div className="flex flex-col justify-between p-2  border-t border-gray-800 sm:flex-row">
 						<div className="flex-initial text-sm text-gray-500">

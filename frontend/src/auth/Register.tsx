@@ -46,7 +46,7 @@ const Register = () => {
   }
 
   return (
-    <div className="flex bg-transparent dark:bg-transparent min-h-full flex-col justify-center py-12 px-6 lg:px-8">
+    <div className="flex flex-col justify-center w-1/2 bg-white p-5 rounded-xl bg-opacity-25 backdrop-filter backdrop-blur-lg dark:bg-black dark:bg-opacity-25">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" />
         <p className="mt-6 text-center text-1xl  text-gray-300">Helia IPFS CMS</p>
