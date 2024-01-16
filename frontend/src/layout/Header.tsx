@@ -33,7 +33,6 @@ const Header = ({ children}:HeaderProps): ReactElement => {
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
-     
       <MenubarMenu>
         <ThemeSwitcher />
       </MenubarMenu>

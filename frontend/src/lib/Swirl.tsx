@@ -1,7 +1,33 @@
-import React from 'react'
-import {Swirl} from 'react-ambient-canvas-backgrounds'
+import React, { useEffect, useState } from 'react';
+import { Swirl as OriginalSwirl } from 'react-ambient-canvas-backgrounds';
+import { useTheme } from './ThemeProvider';
+//import { SwirlPropTypes } from './custom-types.d.ts';
+interface SwirlPropTypes {
+    particleCount?: number
+    rangeY?: number
+    baseTTL?: number
+    rangeTTL?: number
+    baseSpeed?: number
+    rangeSpeed?: number
+    baseRadius?: number
+    rangeRadius?: number
+    baseHue?: number
+    rangeHue?: number
+    noiseSteps?: number
+    xOff?: number
+    yOff?: number
+    zOff?: number
+    backgroundColor?: string
+    loop?: boolean
+}
 
-function MyDropzone() {
+const Swirl: React.FC<SwirlPropTypes> = (props) => {
+    // Utiliser le composant OriginalSwirl avec les props passées.
+    return <OriginalSwirl {...props} backgroundColor={props.backgroundColor as "hsla(260,40%,5%,1)"}/>;
+};
+
+const MyCanvas = () => {
+  const [backgroundColor, setBackgroundColor] = useState('var(--background-canvas)');
   const particleCount = 700;
   const rangeY = 100;
   const baseTTL = 150;
@@ -16,7 +42,12 @@ function MyDropzone() {
   const xOff = 0.00125;
   const yOff = 0.00125;
   const zOff = 0.00125;
+  const { isDarkMode } = useTheme();
+  useEffect(() => {
+    setBackgroundColor(isDarkMode ? 'var(--background-canvas)' : 'var(--background-canvas)');
+  }, [isDarkMode]);
 
+  console.log();
   return (
     <Swirl
         particleCount={particleCount}
@@ -29,10 +60,11 @@ function MyDropzone() {
         baseHue={baseHue}
         rangeHue={rangeHue}
         noiseSteps={noiseSteps}
+        backgroundColor={backgroundColor}
         xOff={xOff}
         yOff={yOff}
         zOff={zOff}
       />
   )
 }
-export default MyDropzone;
+export default MyCanvas;

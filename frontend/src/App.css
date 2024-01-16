@@ -9,6 +9,7 @@
   .light 
   {
     --background: hsla(0, 0%, 100%, 90%);
+    --background-canvas: hsla(0, 0%, 100%, 1);
     --foreground: hsla(222.2, 84%, 4.9%, 1);
     --card-foreground: hsla(222.2, 84%, 4.9%, 1);
     --popover-foreground: hsla(222.2, 84%, 4.9%, 1);
@@ -42,45 +43,9 @@
     --drawer-width-mobile: '90vw';
   }
   @media (prefers-color-scheme: light) {
-    :root {
-       --background: var(--background);
-      --foreground: var(--foreground);
-      --card-foreground: var(--card-foreground);
-      --popover-foreground: var(--popover-foreground);
-      --primary-foreground: var(--primary-foreground);
-      --secondary-foreground: var(--secondary-foreground);
-      --tertiary-foreground: var(--tertiary-foreground);
-      --muted-foreground: var(--muted-foreground);
-      --accent-foreground: var(--accent-foreground);
-      --destructive-foreground: var(--destructive-foreground);
-      --border: var(--border);
-      --input: var(--input);
-      --ring: var(--ring);
-      --radius: var(--radius);
-      --card: var(--card);
-      --popover: var(--popover);
-      --primary: var(--primary);
-      --secondary: var(--secondary);
-      --muted: var(--muted);
-      --accent: var(--accent);
-      --destructive: var(--destructive);
-      --color-primary: var(--color-primary);
-      --color-secondary: var(--color-secondary);
-      --color-tertiary: var(--color-tertiary);
-      --nav-height: var(--nav-height);
-      --nav-background: var(--nav-background);
-      --nav-height-mobile: var(--nav-height-mobile);
-      --footer-height: var(--footer-height);
-      --footer-background: var(--footer-background);
-      --footer-height-mobile: var(--footer-height-mobile);
-      --drawer-width: var(--drawer-width);
-      --drawer-width-mobile: var(--drawer-width-mobile);
-
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
+  :root {
       --background: var(--background);
+      --background-canvas: var(--background-canvas);
       --foreground: var(--foreground);
       --card-foreground: var(--card-foreground);
       --popover-foreground: var(--popover-foreground);
@@ -114,13 +79,13 @@
       --drawer-width-mobile: var(--drawer-width-mobile);
     }
   }
-
   html.dark,
   html[data-theme="dark"],
   :root[data-theme="dark"], 
   .dark
-  {
-    --background: rgb(46, 35, 90);
+    {
+    --background: hsl(242, 32%, 18%);
+    --background-canvas: hsla(242, 32%, 18%,1);
     --foreground: hsl(210, 40%, 98%);
     --card: hsl(222.2, 84%, 4.9%);
     --card-foreground: hsl(210, 40%, 98%);
@@ -146,17 +111,96 @@
     --color-tertiary: hsla(178, 83%, 21%, 0.25); /* dark mode tertiary color */
     /* Autres variables de thème sombre */
   }
-  .dark .content--canvas, .dark .content--canvas canvas {
-    background-color: transparent;
-    color-scheme: dark;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: var(--background);
+      --background-canvas: var(--background-canvas);
+      --foreground: var(--foreground);
+      --card-foreground: var(--card-foreground);
+      --popover-foreground: var(--popover-foreground);
+      --primary-foreground: var(--primary-foreground);
+      --secondary-foreground: var(--secondary-foreground);
+      --tertiary-foreground: var(--tertiary-foreground);
+      --muted-foreground: var(--muted-foreground);
+      --accent-foreground: var(--accent-foreground);
+      --destructive-foreground: var(--destructive-foreground);
+      --border: var(--border);
+      --input: var(--input);
+      --ring: var(--ring);
+      --radius: var(--radius);
+      --card: var(--card);
+      --popover: var(--popover);
+      --primary: var(--primary);
+      --secondary: var(--secondary);
+      --muted: var(--muted);
+      --accent: var(--accent);
+      --destructive: var(--destructive);
+      --color-primary: var(--color-primary);
+      --color-secondary: var(--color-secondary);
+      --color-tertiary: var(--color-tertiary);
+      --nav-height: var(--nav-height);
+      --nav-background: var(--nav-background);
+      --nav-height-mobile: var(--nav-height-mobile);
+      --footer-height: var(--footer-height);
+      --footer-background: var(--footer-background);
+      --footer-height-mobile: var(--footer-height-mobile);
+      --drawer-width: var(--drawer-width);
+      --drawer-width-mobile: var(--drawer-width-mobile);
+    }
+  }
+  html,body {
+    background-color: var(--background);
+    color: var(--primary-foreground);
+  }
+  button {
+    color: var(--primary-foreground);
+    border: 1px solid transparent;
+    background-color: var(--background);
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
   }
 }
+
+  html,body {
+    background-color: var(--background);
+    color: var(--primary-foreground);
+  }
+  
+  button {
+    color: var(--primary-foreground);
+    border: 1px solid transparent;
+    background-color: var(--background);
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+
+
+
+
+/* #root {
+  color: var(--primary-foreground);
+  background-color: var(--background);
+} */
+
 body {
     background-color: var(--background);
     color: var(--primary-foreground);
 }
 .content--canvas {
-  background-color: transparent;
+  background-color: var(--background-canvas);
 }
 .content--canvas canvas {
   position: absolute;
@@ -167,7 +211,7 @@ body {
   color-scheme: light;
   z-index: 0;
   pointer-events: none;
-  background-color: transparent;
+  background-color: var(--background-canvas);
 }
 a {
   font-weight: 500;
@@ -199,58 +243,7 @@ a:hover {
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-  }
-
-@media (prefers-color-scheme: light) {
-  html,body {
-    background-color: var(--background);
-    color: var(--primary-foreground);
-  }
-  
-  button {
-    color: var(--primary-foreground);
-    border: 1px solid transparent;
-    background-color: var(--background);
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-
-}
-@media (prefers-color-scheme: dark) {
-  html,body {
-    background-color: var(--background);
-    color: var(--primary-foreground);
-  }
-  button {
-    color: var(--primary-foreground);
-    border: 1px solid transparent;
-    background-color: var(--background);
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-
-}
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-transparent text-foreground;
-  }
-}
-/* buttons */
+ }
 
 
 :root:has(button:active) {
@@ -271,15 +264,7 @@ a:hover {
   background-attachment:fixed;
   opacity: 0.80;
 }
-/* .dotmap {
-  opacity: 1;
-}
-.dotmap circle {
-  transition: all 3s;
-}
-.dotmap circle animate {
-  transform: translate(0,0) !important;
-} */
+
 .loading #pulsar{
   stroke-dasharray:281;
   animation: dash 2.5s infinite linear forwards;

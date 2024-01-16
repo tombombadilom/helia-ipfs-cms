@@ -11,11 +11,15 @@ const Drawer = lazy(() => import("./Drawer"));
  * @param {ReactNode} props.children - The child components to be rendered.
  * @returns {ReactNode} The rendered layout component.
  */
-const Layout = ({ children }: { children: ReactNode }) => (
+const Layout = ({ children }: { children: ReactNode }): ReactNode => (
 	<div 
 		className="layout w-[100vw] min-h-[100dvh] bg-transparent dark:bg-transparent h-dvh flex flex-col overflow-x-hidden">
 		<Drawer>
-			{children}
+			<div
+				className="flex flex-col items-center justify-center w-[100vw]  min-h-[90dvh] overflow-y-auto text-align-center"
+			>
+				{children}
+			</div>
 		</Drawer>
 		<Toaster />
 		<Footer />

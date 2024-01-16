@@ -25,7 +25,9 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
   return (
     <Sheet key={side}>
       <Header>
-        <SheetTrigger><Menu/></SheetTrigger>
+        <SheetTrigger>
+          <Menu/>
+        </SheetTrigger>
       </Header>
       <div
         className="flex flex-col items-center justify-center min-h-[90dvh] overflow-y-auto text-align-center"

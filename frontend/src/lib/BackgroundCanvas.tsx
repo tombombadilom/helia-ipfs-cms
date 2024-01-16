@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { useTheme } from "./themeUtils";
-import { ContextValue } from './theme'
+import { useTheme, ThemeProviderState } from "./ThemeProvider";
+
 interface CircleProps {
   radius: number;
   speed: number;
@@ -56,7 +56,7 @@ class Circle {
   }
 }
 
-function setupCircles(circlesRef: React.MutableRefObject<Circle[]>, width: number, height: number, theme: ContextValue) {
+function setupCircles(circlesRef: React.MutableRefObject<Circle[]>, width: number, height: number, theme: ThemeProviderState) {
   const numberOfCircles = 40;
   circlesRef.current = [];
   
@@ -96,7 +96,7 @@ function setupCircles(circlesRef: React.MutableRefObject<Circle[]>, width: numbe
 const BackgroundCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const circlesRef = useRef<Circle[]>([]);
-  const theme: ContextValue = useTheme();
+  const theme: ThemeProviderState = useTheme();
   const drawAndUpdate = useCallback((width: number, height: number) => {
     const canvas = canvasRef.current as HTMLCanvasElement;
     const circles = circlesRef.current as Circle[];

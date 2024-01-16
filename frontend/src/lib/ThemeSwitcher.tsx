@@ -1,12 +1,13 @@
 import React from 'react';
 import { Moon, Sun, SunMoon } from 'lucide-react';
-import { useTheme } from "./themeUtils";
+import { useTheme } from "./ThemeProvider";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "../components/ui/tooltip";
+
 import { Toggle } from '../components/ui/toggle';
 
 type Theme = 'light' | 'dark' | 'system'; // Ensure this matches the type expected by setTheme
@@ -14,11 +15,15 @@ type Theme = 'light' | 'dark' | 'system'; // Ensure this matches the type expect
 const themes = [
   { icon: <Sun size="32"/>, name: 'light' },
   { icon: <Moon size="32"/>, name: 'dark' },
-  { icon: <SunMoon size="32"/>, name: 'system' },
+  { icon: <SunMoon size="32"/>, name: 'system'},
 ];
 
 const ThemeSwitcher = (): JSX.Element => {
   const { theme, setTheme } = useTheme();
+  const handleTheme = (theme: Theme) => {
+    console.log('toggle theme', theme);
+    setTheme(theme);
+  }
 
   return (
     <div className="flex items-center space-x-2">
@@ -30,7 +35,7 @@ const ThemeSwitcher = (): JSX.Element => {
               <TooltipTrigger asChild>
                 <Toggle
                   key={'theme-toggle-' + index}
-                  onClick={() => setTheme(themes.name as Theme)} // Type assertion here
+                  onClick={() => handleTheme(themes.name as Theme)}
                   style={{
                     opacity: theme === themes.name ? 1 : 0.5,
                     color: theme === themes.name ? 'var(--primary-foreground)' : 'var(--tertiary-foreground)',
