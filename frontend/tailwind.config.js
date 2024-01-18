@@ -16,35 +16,47 @@ module.exports = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "3xl": "1700px",
+        "4xl": "2000px",
+        "5xl": "2300px",
+        "6xl": "2600px",
+        "7xl": "2900px",
+        "8xl": "3200px",
+        "9xl": "3500px",
+        "10xl": "3800px",
+        "11xl": "4100px",
+        "12xl": "4400px",
+        "13xl": "4700px",
+        "14xl": "5000px",
+        "15xl": "5300px",
       },
     },
     extend: {
       height: {
         Nav: "var(--nav-height)",
         Footer: "var(--footer-height)",
+        fit:"calc(100dvh - var(--nav-height) - var(--footer-height))",
       },
       width: {
         drawerWidth: "var(--drawer-width)",
-        drawerWidthMobile: "var(--drawer-widthMobile)",
+        drawerWidthMobile: "var(--drawer-width-mobile)",
       },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
-        primaryBackground: "hsl(var(--primary-background))",
-        primaryForeground: "hsl(var(--primary-foreground))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary-background))",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary-background))",
+          DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         tertiary: {
-          DEFAULT: "hsl(var(--tertiary-background))",
+          DEFAULT: "hsl(var(--tertiary))",
           foreground: "hsl(var(--tertiary-foreground))",
         },
         destructive: {
@@ -101,5 +113,5 @@ module.exports = {
       },
     },
   },
-    plugins: [tailwindAnimate],
+  plugins: [tailwindAnimate],
 }

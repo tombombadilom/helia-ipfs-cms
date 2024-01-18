@@ -12,13 +12,12 @@ const Register = lazy(() => import("./auth/Register.tsx"));
 const Home = lazy(() => import("./page/Home"));
 const About = lazy(() => import("./page/About"));
 const ImagesUpload = lazy(() => import("./lib/ImagesUpload.tsx"));
-import Swirl from './lib/Swirl';
+
 
 const MyRoutes = () => {
   
   return (
     <Router>
-      <Swirl />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

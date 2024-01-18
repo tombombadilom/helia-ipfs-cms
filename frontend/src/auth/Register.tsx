@@ -3,9 +3,10 @@ import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
+import { cn } from "../lib/utils";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import {useNavigate} from "react-router-dom";
 import {
   Form,
   FormControl,
@@ -15,6 +16,15 @@ import {
   FormLabel,
   FormMessage,
 } from "../components/ui/form";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -28,7 +38,9 @@ const formSchema = z.object({
   }),
 })
 
-const Register = () => {
+type CardProps = React.ComponentProps<typeof Card>
+
+const Register = ({ className, ...props }: CardProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,7 +49,7 @@ const Register = () => {
       password: ""
     },
   })
- 
+  const navigate = useNavigate();
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
@@ -46,15 +58,13 @@ const Register = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center w-1/2 bg-secondaryBackground text-primaryForeground p-5 rounded-xl bg-opacity-25 backdrop-filter backdrop-blur-lg dark:bg-secondaryBackground dark:bg-opacity-25">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" />
-        <p className="mt-6 text-center text-1xl  text-primaryForeground">Helia IPFS CMS</p>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-secondaryForeground">Register to your account</h2>
-      </div>
-      
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <Form {...form}>
+     <Card className={cn("w-[80vw] bg-opacity-75 backdrop-filter backdrop-blur-lg  bg-primary text-primary-foreground p-5 rounded-xl dark:bg-primary dark:bg-opacity-75 dark:text-tertiary-foreground", className)} {...props}>
+      <CardHeader>
+        <CardTitle><img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" /> Helia IPFS CMS</CardTitle>
+        <CardDescription>Register to your account</CardDescription>
+      </CardHeader>
+      <CardContent className="grid gap-4">
+         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
@@ -112,8 +122,16 @@ const Register = () => {
             >Submit</Button>
         </form>
       </Form>
-      </div>
-    </div>
+
+      </CardContent>
+       <CardFooter>
+        <Button 
+         onClick={() => navigate('/Login')}
+         className="w-full">
+          Log in
+        </Button>
+      </CardFooter>
+    </Card>
   )
 }
 export default Register;

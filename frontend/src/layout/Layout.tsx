@@ -13,10 +13,10 @@ const Drawer = lazy(() => import("./Drawer"));
  */
 const Layout = ({ children }: { children: ReactNode }): ReactNode => (
 	<div 
-		className="layout w-[100vw] min-h-[100dvh] bg-transparent dark:bg-transparent h-dvh flex flex-col overflow-x-hidden">
+		className="layout w-[100vw] min-h-[100dvh] bg-tertiary text-tertiary-foreground dark:bg-secondary dark:text-secondary-foreground h-dvh flex flex-col overflow-x-hidden">
 		<Drawer>
 			<div
-				className="flex flex-col items-center justify-center w-[100vw]  min-h-[90dvh] overflow-y-auto text-align-center"
+				className="flex flex-col items-center justify-center w-[100vw]min-h-[90dvh] overflow-y-auto text-align-center"
 			>
 				{children}
 			</div>

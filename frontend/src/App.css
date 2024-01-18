@@ -1,141 +1,161 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   html.light,
-  html[data-theme="light"], 
-  :root[data-theme="light"], 
-  .light 
-  {
-    --background: hsl(0, 0%, 100%);
-    --primary-background: hsl(81, 86%, 49%);
-    --secondary-background: hsl(292, 87%, 47%);
-    --tertiary-background: hsl(228, 87%, 49%);
-    --background-canvas: hsl(0, 0%, 100%);
-    --foreground: hsl(222, 84%, 4.9%);
-    --card-foreground: hsl(222, 84%, 4.9%);
-    --popover-foreground: hsl(222, 84%, 4.9%);
-    --primary-foreground: hsl(213, 98%, 4.1%);
-    --secondary-foreground: hsl(213, 97%, 9.8%);
-    --tertiary-foreground: hsl(304, 47%, 11%);
-    --muted-foreground: hsl(215, 16%, 46.9%);
-    --accent-foreground: hsl(222, 47%, 11.2%);
-    --destructive-foreground: hsl(210, 40%, 98%);
-    --border: hsl(214, 32%, 91.4%);
-    --input: hsl(214, 32%, 91.4%);
-    --ring: hsl(222, 84%, 4.9%);
-    --radius: 0.5rem;
-    --card: hsl(0, 0%, 100%);
-    --popover: hsl(0, 0%, 100%);
-    --primary: hsl(222, 47%, 11.2%);
-    --secondary: hsl(210, 40%, 96.1%);
-    --muted: hsl(210, 40%, 96.1%);
-    --accent: hsl(210, 40%, 96.1%);
-    --destructive: hsl(0, 84%, 60%);
-    --color-primary: hsl(202, 72%, 37%);
-    --color-secondary: hsl(173, 100%, 25%);
-    --color-tertiary: hsl(183, 87%, 50%);
+  html[data-theme="light"],
+  :root[data-theme="light"],
+  .light {
+    :root {
+      --background: 146 0% 100%;
+      --foreground: 262.99 21.32% 81.15%;
+      --card: 111.84 80.28% 46.02%;
+      --card-foreground: 177.27 61.21% 20.65%;
+      --popover: 274.27 100% 50.44%;
+      --popover-foreground: 267.5 17.89% 83.54%;
+      --primary: 146 88% 44%;
+      --primary-foreground: 146 88% 4%;
+      --secondary: 266 88% 44%;
+      --secondary-foreground: 0 0% 100%;
+      --tertiary: 146 86.92% 5.47%;
+      --tertiary-foreground: 146 86.92% 5.47%;
+      --accent: 26 97.99% 50.81%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 26.11 94.88% 49.62%;
+      --destructive-foreground: 17 20.75% 28.76%;
+      --muted: 127.63 84.65% 37.37%;
+      --muted-foreground: 179.52 19.81% 33.94%;
+      --border: 179.52 86.15% 18.65%;
+      --input: 188.55 85.4% 44.51%;
+      --ring: 146 88% 44%;
+      --radius: 0.5rem;
+      --primary-background: 81 86% 49%;
+      --secondary-background: 292 87% 47%;
+      --tertiary-background: 228 87% 49%;
+      --background-canvas: 0 0% 100%;
+      --nav-height: 10dvh;
+      --nav-background: 202 72% 37%;
+      --nav-height-mobile: 10dvh;
+      --footer-height: 10dvh;
+      --footer-background: 202 72% 37%;
+      --footer-height-mobile: 10dvh;
+      --drawer-width: 40vw;
+      --drawer-width-mobile: 90vw;
+    }
+  }
+
+  html.dark,
+  html[data-theme="dark"],
+  :root[data-theme="dark"],
+  .dark {
+    --background: 146 86.92% 5.47%;
+    --foreground: 146 100% 50%;
+    --card: 272.02 62.35% 16.65%;
+    --card-foreground: 146 79.22% 55.05%;
+    --popover: 211.11 80.28% 22.31%;
+    --popover-foreground: 146 38% 99%;
+    --primary: 146 88% 44%;
+    --primary-foreground: 146 89.24% 9.81%;
+    --secondary: 266 88% 44%;
+    --secondary-foreground: 265.25 100% 92.88%;
+    --tertiary: 146 86.92% 5.47%;
+    --tertiary-foreground: 146 100% 50%;
+    --accent: 26 89.24% 40.65%;
+    --accent-foreground: 30.63 51.85% 83.11%;
+    --destructive: 17 89.24% 49.48%;
+    --destructive-foreground: 0 94.48% 92.03%;
+    --muted: 266 50.59% 40.28%;
+    --muted-foreground: 266 21.64% 60.03%;
+    --border: 215 27.49% 10.17%;
+    --input: 247.2 31.15% 36.7%;
+    --ring: 146 83.17% 46.91%;
+    --primary-background: 146 86.92% 5.47%;
+    --secondary-background: 224.64 85.4% 5.93%;
+    --tertiary-background: 272.02 85.4% 5.93%;
     --nav-height: 10dvh;
-    --nav-background: hsl(202, 72%, 37%);
+    --nav-background: 202 72% 37%;
     --nav-height-mobile: 10dvh;
     --footer-height: 10dvh;
-    --footer-background: hsl(202, 72%, 37%);
+    --footer-background: 202 72% 37%;
     --footer-height-mobile: 10dvh;
     --drawer-width: 40vw;
     --drawer-width-mobile: 90vw;
   }
-  @media (prefers-color-scheme: light) {
+} 
+
+@media (prefers-color-scheme: light) {
   :root {
-      --background: var(--background);
-      --primary-background: var(--primary-background);
-      --secondary-background: var(--secondary-background);
-      --tertiary-background: var(--tertiary-background);
-      --foreground: var(--foreground);
-      --card: var(--card);
-      --card-foreground: var(--card-foreground);
-      --popover: 1var(--popover);
-      --popover-foreground: var(--popover-foreground);
-      --primary: var(--primary);
-      --primary-foreground: var(--primary-foreground);
-      --secondary: var(--secondary);
-      --secondary-foreground: ar(--secondary-foreground);
-      --tertiary-background: var(--tertiary-background);
-      --accent: var(--accent);
-      --accent-foreground: var(--accent-foreground);
-      --destructive: var(--destructive);
-      --destructive-foreground: var(--destructive-foreground);
-      --muted: var(--muted);
-      --muted-foreground: var(--muted-foreground);
-      --border: var(--border);
-      --input: var(--input);
-      --ring: var(--ring);
-      --radius: var(--radius);
+     --background: 146 0% 100%;
+      --foreground: 262.99 21.32% 81.15%;
+      --card: 111.84 80.28% 46.02%;
+      --card-foreground: 177.27 61.21% 20.65%;
+      --popover: 274.27 100% 50.44%;
+      --popover-foreground: 267.5 17.89% 83.54%;
+      --primary: 146 88% 44%;
+      --primary-foreground: 146 88% 4%;
+      --secondary: 266 88% 44%;
+      --secondary-foreground: 0 0% 100%;
+      --tertiary: 146 86.92% 5.47%;
+      --tertiary-foreground: 146 86.92% 5.47%;
+      --accent: 26 97.99% 50.81%;
+      --accent-foreground: 0 0% 100%;
+      --destructive: 26.11 94.88% 49.62%;
+      --destructive-foreground: 17 20.75% 28.76%;
+      --muted: 127.63 84.65% 37.37%;
+      --muted-foreground: 179.52 19.81% 33.94%;
+      --border: 179.52 86.15% 18.65%;
+      --input: 188.55 85.4% 44.51%;
+      --ring: 146 88% 44%;
+      --radius: 0.5rem;
+      --primary-background: 81 86% 49%;
+      --secondary-background: 292 87% 47%;
+      --tertiary-background: 228 87% 49%;
+      --background-canvas: 0 0% 100%;
+      --nav-height: 10dvh;
+      --nav-background: 202 72% 37%;
+      --nav-height-mobile: 10dvh;
+      --footer-height: 10dvh;
+      --footer-background: 202 72% 37%;
+      --footer-height-mobile: 10dvh;
+      --drawer-width: 40vw;
+      --drawer-width-mobile: 90vw;
     }
-  }
-  html.dark,
-  html[data-theme="dark"],
-  :root[data-theme="dark"], 
-  .dark
-    {
-      --background: hsl(140, 56%, 15%);
-      --primary-background: hsla(80, 87%, 9%, 0.9);
-      --secondary-background: hsla(204, 83%, 11%, 0.9);
-      --tertiary-background: hsla(293, 80%, 10%, 0.9);
-           --foreground: hsl(133, 20%, 98%);
-           --card: hsl(140, 56%, 15%);
-           --card-foreground: hsl(133, 20%, 98%);
-           --popover: hsl(140, 56%, 15%);
-           --popover-foreground: hsl(133, 20%, 98%);
-           --primary: hsl(133, 100%, 36%);
-           --primary-foreground: rgb(19, 137, 241);
-           --secondary-foreground: rgb(182, 4, 227);
-           --tertiary-foreground: hsl(122, 83%, 47%);
-           --secondary: hsl(313, 100%, 36%);
-           --accent: hsl(313, 100%, 36%);
-           --accent-foreground: hsl(0, 0%, 100%);
-           --destructive: hsl(17, 82%, 46%);
-           --destructive-foreground: hsl(0, 0%, 100%);
-           --muted: hsl(313, 29%, 10%);
-           --muted-foreground: hsl(313, 1%, 63%);
-           --border: hsl(215, 27.9%, 16.9%);
-           --input: hsl(215, 27.9%, 16.9%);
-           --ring: hsl(133, 100%, 36%);
-           --radius: 0.5rem;
-  }
-  @media (prefers-color-scheme: dark) {
+}
+@media (prefers-color-scheme: dark) {
     :root {
-      --background: var(--background);
-      --primary-background: var(--primary-background);
-      --secondary-background: var(--secondary-background);
-      --tertiary-background: var(--tertiary-background);
-      --background-canvas: var(--background-canvas);
-      --foreground: var(--foreground);
-      --card-foreground: var(--card-foreground);
-      --popover-foreground: var(--popover-foreground);
-      --primary-foreground: var(--primary-foreground);
-      --secondary-foreground: var(--secondary-foreground);
-      --tertiary-foreground: var(--tertiary-foreground);
-      --muted-foreground: var(--muted-foreground);
-      --accent-foreground: var(--accent-foreground);
-      --destructive-foreground: var(--destructive-foreground);
-      --border: var(--border);
-      --input: var(--input);
-      --ring: var(--ring);
-      --radius: var(--radius);
-      --card: var(--card);
-      --popover: var(--popover);
-      --primary: var(--primary);
-      --secondary: var(--secondary);
-      --muted: var(--muted);
-      --muted-foreground: var(--muted-foreground);
-      --accent: var(--accent);
-      --destructive: var(--destructive);
-      --destructive-foreground: var(--destructive-foreground);
-      --border: var(--border);
-      --input: var(--input);
-      --ring: var(--ring);
-      --radius: ar(--radius);
+      --background: 146 86.92% 5.47%;
+      --foreground: 146 100% 50%;
+      --card: 272.02 62.35% 16.65%;
+      --card-foreground: 146 79.22% 55.05%;
+      --popover: 211.11 80.28% 22.31%;
+      --popover-foreground: 146 38% 99%;
+      --primary: 146 88% 44%;
+      --primary-foreground: 146 89.24% 9.81%;
+      --secondary: 266 88% 44%;
+      --secondary-foreground: 265.25 100% 92.88%;
+      --tertiary: 146 86.92% 5.47%;
+      --tertiary-foreground: 146 100% 50%;
+      --accent: 26 89.24% 40.65%;
+      --accent-foreground: 30.63 51.85% 83.11%;
+      --destructive: 17 89.24% 49.48%;
+      --destructive-foreground: 0 94.48% 92.03%;
+      --muted: 266 50.59% 40.28%;
+      --muted-foreground: 266 21.64% 60.03%;
+      --border: 215 27.49% 10.17%;
+      --input: 247.2 31.15% 36.7%;
+      --ring: 146 83.17% 46.91%;
+      --primary-background: 146 86.92% 5.47%;
+      --secondary-background: 224.64 85.4% 5.93%;
+      --tertiary-background: 272.02 85.4% 5.93%;
+      --nav-height: 10dvh;
+      --nav-background: 202 72% 37%;
+      --nav-height-mobile: 10dvh;
+      --footer-height: 10dvh;
+      --footer-background: 202 72% 37%;
+      --footer-height-mobile: 10dvh;
+      --drawer-width: 40vw;
+      --drawer-width-mobile: 90vw;
     }
   }
   html,body {
@@ -155,7 +175,7 @@
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
-}
+
 
   html,body {
     background-color: var(--background);
