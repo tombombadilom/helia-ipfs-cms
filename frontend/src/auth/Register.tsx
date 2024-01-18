@@ -46,11 +46,11 @@ const Register = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center w-1/2 bg-white p-5 rounded-xl bg-opacity-25 backdrop-filter backdrop-blur-lg dark:bg-black dark:bg-opacity-25">
+    <div className="flex flex-col justify-center w-1/2 bg-secondaryBackground text-primaryForeground p-5 rounded-xl bg-opacity-25 backdrop-filter backdrop-blur-lg dark:bg-secondaryBackground dark:bg-opacity-25">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" />
-        <p className="mt-6 text-center text-1xl  text-gray-300">Helia IPFS CMS</p>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Register to your account</h2>
+        <p className="mt-6 text-center text-1xl  text-primaryForeground">Helia IPFS CMS</p>
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-secondaryForeground">Register to your account</h2>
       </div>
       
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -68,7 +68,9 @@ const Register = () => {
                 <FormDescription>
                   This is your registering name.
                 </FormDescription>
-                <FormMessage />
+                <FormMessage 
+                  className="text-red-500 dark:text-red-400"
+                />
               </FormItem>
             )}
           />
@@ -106,7 +108,7 @@ const Register = () => {
           />
             <Button
               type="submit"
-              className="w-full flex justify-center border-gray-300 rounded-md hadow-sm text-sm font-medium text-white bg-indigo-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-sm"
+              className="w-full flex justify-center rounded-md shadow-sm text-sm font-medium text-primaryForeground bg-primaryBackground placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-sm"
             >Submit</Button>
         </form>
       </Form>

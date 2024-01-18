@@ -32,19 +32,19 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
-        navBackground: "hsl(var(--nav-background))",
-        navFooter: "hsl(var(--nav-footer))",
+        primaryBackground: "hsl(var(--primary-background))",
+        primaryForeground: "hsl(var(--primary-foreground))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "hsl(var(--primary-background))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "hsl(var(--secondary-background))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         tertiary: {
-          DEFAULT: "hsl(var(--tertiary))",
+          DEFAULT: "hsl(var(--tertiary-background))",
           foreground: "hsl(var(--tertiary-foreground))",
         },
         destructive: {
@@ -72,9 +72,13 @@ module.exports = {
           foreground: "hsl(var(--primary-foreground))",
         },
         menubar: {
-          DEFAULT: "hsl(var(--menubar))",
-          foreground: "hsl(var(--menubar-foreground))",
-        }
+          DEFAULT: "hsl(var(--primary-background))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        form: {
+          DEFAULT: "hsl(var(--primary-background))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

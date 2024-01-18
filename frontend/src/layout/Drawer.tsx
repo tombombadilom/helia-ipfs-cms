@@ -26,7 +26,9 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
     <Sheet key={side}>
       <Header>
         <SheetTrigger>
-          <Menu/>
+          <Menu
+            className="bg-background text-primary-foreground bg-opacity-75 backdrop-filter backdrop-blur-lg  rounded-md w-10 h-10"
+          />
         </SheetTrigger>
       </Header>
       <div

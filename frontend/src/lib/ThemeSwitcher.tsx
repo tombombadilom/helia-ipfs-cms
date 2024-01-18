@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sun, SunMoon } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from "./ThemeProvider";
 import {
   Tooltip,
@@ -15,13 +15,12 @@ type Theme = 'light' | 'dark' | 'system'; // Ensure this matches the type expect
 const themes = [
   { icon: <Sun size="32"/>, name: 'light' },
   { icon: <Moon size="32"/>, name: 'dark' },
-  { icon: <SunMoon size="32"/>, name: 'system'},
+  // { icon: <SunMoon size="32"/>, name: 'system'},
 ];
 
 const ThemeSwitcher = (): JSX.Element => {
   const { theme, setTheme } = useTheme();
   const handleTheme = (theme: Theme) => {
-    console.log('toggle theme', theme);
     setTheme(theme);
   }
 

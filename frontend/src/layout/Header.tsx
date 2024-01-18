@@ -21,7 +21,7 @@ type HeaderProps = {
 const Header = ({ children}:HeaderProps): ReactElement => {
   return (
     <Menubar 
-      className="w-[100vw] min-h-[5dvh] flex items-center border-0 justify-between bg-white-300 bg-opacity-75 dark:primary-foreground dark:bg-white-300 dark:bg-opacity-15 bg-clip-padding p-1  backdrop-filter backdrop-blur-lg">
+      className="w-[100vw] min-h-[5dvh] bg-primaryBackground text-primaryForeground rounded-md bg-clip-padding backdrop-blur-md bg-opacity-75 flex items-center border-0 justify-between dark:bg-primaryBackground dark:bg-opacity-75 dark:text-primaryForeground p-1">
       <MenubarMenu>
        {children}
       </MenubarMenu>

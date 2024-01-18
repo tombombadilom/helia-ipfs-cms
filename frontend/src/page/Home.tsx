@@ -1,13 +1,36 @@
 import React from 'react'
 import { Button }  from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
+// import Globe from 'react-globe.gl';
+// import chroma from 'chroma-js';
 
+// const N = 20;
+// const arcsData = Array.from({ length: N }, () => {
+//   const randomColor = chroma.random(); // Generate a random color
+//   return {
+//     startLat: (Math.random() - 0.5) * 180,
+//     startLng: (Math.random() - 0.5) * 360,
+//     endLat: (Math.random() - 0.5) * 180,
+//     endLng: (Math.random() - 0.5) * 360,
+//     color: randomColor.css('hsl') // Convert the color to HSLA format
+//   };
+// });
 const Home = () => {
   const navigate = useNavigate();
   return (
     <div
-      className="home w-2/3 bg-white-300 dark:bg-black-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40  w-screen min-h-[90dvh] rounded-lg bg-cover bg-no-repeat p-12 text-center"
+      className="w-2/3 rounded-md p-12 text-center"
     >
+      {/* <Globe 
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+        arcsData={arcsData}
+        arcColor={"color"}
+        backgroundColor="var(--background-canvas)"
+        arcDashLength={() => Math.random()}
+        arcDashGap={() => Math.random()}
+        arcDashAnimateTime={() => Math.random() * 4000 + 500}
+        animateIn={true}
+      /> */}
       <div
         className="bg-fixed p-1 rounded-lg"
         style={{

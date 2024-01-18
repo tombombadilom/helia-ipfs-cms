@@ -6,6 +6,7 @@
       // Immediately invoked function to set the theme before the page renders
       var theme = localStorage.getItem('vite-ui-theme') || 'light'; // Replace 'light' with your default theme
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('class', theme);
     })();
     </script>
     <meta charset="UTF-8" />
