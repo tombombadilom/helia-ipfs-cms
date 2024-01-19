@@ -1,5 +1,4 @@
 import React from 'react'
-import { cn } from "../lib/utils"
 import { Button }  from '../components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -11,13 +10,14 @@ import {
   CardTitle,
 } from "../components/ui/card";
 
-type CardProps = React.ComponentProps<typeof Card>
-
-const Home = ({ className, ...props }: CardProps) => {
+const Home = () => {
   const navigate = useNavigate();
   return (
     <Card
-      className={cn("w-[80vw] h-fit m-auto bg-opacity-heavy backdrop-filter backdrop-blur-lg p-5 rounded-xl shadow-lg hover:bg-opacity-medium dark:hover:bg-opacity-medium", className)} {...props}
+      // className={cn("rotating-dashed-border w-[80vw] h-fit m-auto bg-opacity-heavy backdrop-filter backdrop-blur-lg p-5 rounded-xl shadow-lg hover:bg-opacity-medium dark:hover:bg-opacity-medium", className)} {...props}
+      className="gradient-border border-0 w-[80vw] h-fit m-auto bg-opacity-heavy backdrop-filter backdrop-blur-lg p-5 rounded-xl shadow-lg 
+      radius-3xl
+      hover:bg-opacity-medium dark:hover:bg-opacity-medium"
     >
       <CardHeader
         className="flexinit"

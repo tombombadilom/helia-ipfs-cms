@@ -16,9 +16,9 @@ const slides = [slide1, slide2, slide3, slide4];
 const About = () => {
   return (
     <div
-      className="w-[90vw] min-h-[90dvh] bg-opacity-heavy rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40  bg-cover bg-no-repeat p-12 text-center"
+      className="gradient-border w-[90vw] min-h-[90dvh] bg-opacity-heavy rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-cover bg-no-repeat p-12 text-center"
     >
-      <h1>About</h1>
+      
       <Carousel
         opts={{
           align: "start",
@@ -41,7 +41,7 @@ const About = () => {
                   }}
                 >
                   <CardTitle>
-                    blah
+                    About
                   </CardTitle>
                   <CardContent 
                     className="flex aspect-square items-center justify-center p-6">

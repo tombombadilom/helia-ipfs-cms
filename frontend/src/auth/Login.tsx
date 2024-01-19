@@ -2,7 +2,6 @@ import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { cn } from "../lib/utils";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import {
@@ -33,8 +32,7 @@ const formSchema = z.object({
   }),
 })
 
-type CardProps = React.ComponentProps<typeof Card>
-const LoginForm: React.FC = ({ className, ...props }: CardProps) => {
+const LoginForm: React.FC = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,7 +49,7 @@ const LoginForm: React.FC = ({ className, ...props }: CardProps) => {
   }
 
   return (
-    <Card className={cn("w-[80vw] bg-opacity-heavy backdrop-filter backdrop-blur-lg  bg-card text-card-foreground p-5 rounded-xl dark:bg-card dark:bg-opacity-medium dark:text-card-foreground", className)} {...props}>
+    <Card className="gradient-border w-[80vw] bg-opacity-heavy backdrop-filter backdrop-blur-lg  bg-card text-card-foreground p-5 rounded-xl dark:bg-card dark:bg-opacity-medium dark:text-card-foreground">
       <CardHeader>
         <CardTitle><img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" /> Helia IPFS CMS</CardTitle>
         <CardDescription>Sign in to your account</CardDescription>
