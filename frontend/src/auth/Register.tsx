@@ -58,7 +58,7 @@ const Register = ({ className, ...props }: CardProps) => {
   }
 
   return (
-     <Card className={cn("w-[80vw] bg-opacity-75 backdrop-filter backdrop-blur-lg  bg-primary text-primary-foreground p-5 rounded-xl dark:bg-primary dark:bg-opacity-75 dark:text-tertiary-foreground", className)} {...props}>
+     <Card className={cn("w-[80vw] bg-opacity-light backdrop-filter backdrop-blur-lg  bg-card text-card-foreground p-5 rounded-xl dark:bg-card dark:bg-opacity-15 dark:text-card-foreground", className)} {...props}>
       <CardHeader>
         <CardTitle><img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" /> Helia IPFS CMS</CardTitle>
         <CardDescription>Register to your account</CardDescription>
@@ -118,7 +118,7 @@ const Register = ({ className, ...props }: CardProps) => {
           />
             <Button
               type="submit"
-              className="w-full flex justify-center rounded-md shadow-sm text-sm font-medium text-primaryForeground bg-primaryBackground placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-sm"
+              className="w-full"
             >Submit</Button>
         </form>
       </Form>

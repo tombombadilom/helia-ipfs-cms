@@ -51,14 +51,14 @@ const LoginForm: React.FC = ({ className, ...props }: CardProps) => {
   }
 
   return (
-    <Card className={cn("w-[80vw] bg-opacity-75 backdrop-filter backdrop-blur-lg  bg-primary text-primary-foreground p-5 rounded-xl dark:bg-primary dark:bg-opacity-75 dark:text-tertiary-foreground", className)} {...props}>
+    <Card className={cn("w-[80vw] bg-opacity-heavy backdrop-filter backdrop-blur-lg  bg-card text-card-foreground p-5 rounded-xl dark:bg-card dark:bg-opacity-medium dark:text-card-foreground", className)} {...props}>
       <CardHeader>
         <CardTitle><img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" /> Helia IPFS CMS</CardTitle>
         <CardDescription>Sign in to your account</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
          <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-primary bg-primary-background dark:primary dark:bg-primary-background">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-card bg-transparent dark:text-card-foreground dark:bg-transparent">
           <FormField
             control={form.control}
             name="email"
@@ -68,7 +68,7 @@ const LoginForm: React.FC = ({ className, ...props }: CardProps) => {
                 >Email</FormLabel>
                 <FormControl>
                   <Input 
-                    className="input input-bordered"
+                    className="input input-bordered basis-3/4 hover:text-secondary hover:bg-secondary"
                     placeholder="me@email.com" {...field} />
                 </FormControl>
                 <FormDescription>
@@ -86,7 +86,7 @@ const LoginForm: React.FC = ({ className, ...props }: CardProps) => {
                 <FormLabel>Password</FormLabel>
                 <FormControl>
                   <Input 
-                    className="input input-bordered hover:text-primary hover:bg-primary"
+                    className="input input-bordered basis-3/4 hover:text-secondary hover:bg-secondary"
                     placeholder="°°°°°°°°°°°°" {...field} />
                 </FormControl>
                 <FormDescription>
@@ -98,7 +98,7 @@ const LoginForm: React.FC = ({ className, ...props }: CardProps) => {
           />
             <Button
               type="submit"
-              className="w-full flex justify-center rounded-md shadow-sm text-sm font-medium text-primary-foreground bg-primary-background hover:bg-primary/80 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:text-sm"
+              className="w-full"
             >Submit</Button>
         </form>
       </Form>

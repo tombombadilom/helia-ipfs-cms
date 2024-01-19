@@ -8,37 +8,37 @@
   :root[data-theme="light"],
   .light {
     :root {
-      --background: 146 0% 100%;
-      --foreground: 262.99 21.32% 81.15%;
-      --card: 111.84 80.28% 46.02%;
-      --card-foreground: 177.27 61.21% 20.65%;
-      --popover: 274.27 100% 50.44%;
-      --popover-foreground: 267.5 17.89% 83.54%;
-      --primary: 146 88% 44%;
-      --primary-foreground: 146 88% 4%;
-      --secondary: 266 88% 44%;
-      --secondary-foreground: 0 0% 100%;
-      --tertiary: 146 86.92% 5.47%;
-      --tertiary-foreground: 146 86.92% 5.47%;
-      --accent: 26 97.99% 50.81%;
-      --accent-foreground: 0 0% 100%;
-      --destructive: 26.11 94.88% 49.62%;
-      --destructive-foreground: 17 20.75% 28.76%;
-      --muted: 127.63 84.65% 37.37%;
-      --muted-foreground: 179.52 19.81% 33.94%;
-      --border: 179.52 86.15% 18.65%;
-      --input: 188.55 85.4% 44.51%;
-      --ring: 146 88% 44%;
+      --background: 210, 20%, 25%; /* Fond très foncé */
+      --foreground: 210, 15%, 85%; /* Texte clair pour contraste élevé */
+      --primary: 207, 90%, 50%; /* Bleu vif et saturé */
+      --secondary: 0, 0%, 55%; /* Gris plus clair pour contraste */
+      --accent: 140, 60%, 45%; /* Vert vif et saturé */
+      --card: 207, 90%, 48%; /* Fond de carte bleu */
+      --card-foreground: 210, 20%, 85%; /* Texte sur carte */
+      --popover: 140, 60%, 48%; /* Fond popover vert */
+      --popover-foreground: 210, 15%, 85%; /* Texte popover */
+      --primary-foreground: 207, 90%, 10%; /* Texte sur bleu */
+      --secondary-foreground: 0, 0%, 100%; /* Texte sur gris */
+      --tertiary: 207, 90%, 55%; /* Tertiaire bleu légèrement plus clair */
+      --tertiary-foreground: 207, 90%, 5%; /* Texte sur tertiaire */
+      --destructive: 0, 100%, 50%; /* Rouge pour éléments destructifs */
+      --destructive-foreground: 0, 0%, 100%; /* Texte sur rouge */
+      --muted: 207, 90%, 65%; /* Bleu atténué */
+      --muted-foreground: 210, 20%, 85%; /* Texte sur bleu atténué */
+      --border: 207, 90%, 45%; /* Bordure bleue */
+      --input: 207, 90%, 50%; /* Entrée de formulaire bleue */
+      --ring: 140, 60%, 45%; /* Focus vert */
       --radius: 0.5rem;
-      --primary-background: 81 86% 49%;
-      --secondary-background: 292 87% 47%;
-      --tertiary-background: 228 87% 49%;
-      --background-canvas: 0 0% 100%;
+      --primary-background: 207, 90%, 53%; /* Fond bleu principal */
+      --secondary-background: 0, 0%, 60%; /* Fond gris secondaire */
+      --tertiary-background: 140, 60%, 50%; /* Fond vert tertiaire */
+      --background-canvas: 210, 20%, 25%; /* Toile de fond */
       --nav-height: 10dvh;
-      --nav-background: 202 72% 37%;
+      --nav-background: 207, 80%, 50%; /* Fond de navigation bleu */
+      --nav-foreground: 210, 10%, 90%; /* Texte de navigation clair pour contraste élevé */
       --nav-height-mobile: 10dvh;
       --footer-height: 10dvh;
-      --footer-background: 202 72% 37%;
+      --footer-background: 207, 90%, 50%; /* Fond de pied de page bleu */
       --footer-height-mobile: 10dvh;
       --drawer-width: 40vw;
       --drawer-width-mobile: 90vw;
@@ -48,75 +48,78 @@
   html.dark,
   html[data-theme="dark"],
   :root[data-theme="dark"],
-  .dark {
-    --background: 146 86.92% 5.47%;
-    --foreground: 146 100% 50%;
-    --card: 272.02 62.35% 16.65%;
-    --card-foreground: 146 79.22% 55.05%;
-    --popover: 211.11 80.28% 22.31%;
-    --popover-foreground: 146 38% 99%;
-    --primary: 146 88% 44%;
-    --primary-foreground: 146 89.24% 9.81%;
-    --secondary: 266 88% 44%;
-    --secondary-foreground: 265.25 100% 92.88%;
-    --tertiary: 146 86.92% 5.47%;
-    --tertiary-foreground: 146 100% 50%;
-    --accent: 26 89.24% 40.65%;
-    --accent-foreground: 30.63 51.85% 83.11%;
-    --destructive: 17 89.24% 49.48%;
-    --destructive-foreground: 0 94.48% 92.03%;
-    --muted: 266 50.59% 40.28%;
-    --muted-foreground: 266 21.64% 60.03%;
-    --border: 215 27.49% 10.17%;
-    --input: 247.2 31.15% 36.7%;
-    --ring: 146 83.17% 46.91%;
-    --primary-background: 146 86.92% 5.47%;
-    --secondary-background: 224.64 85.4% 5.93%;
-    --tertiary-background: 272.02 85.4% 5.93%;
+ .dark {
+    :root {
+      --background: 210, 30%, 10%; /* Fond extrêmement foncé pour intimité */
+    --foreground: 210, 10%, 90%; /* Texte clair pour contraste élevé */
+    --primary: 207, 80%, 60%; /* Bleu vif légèrement plus clair pour mode sombre */
+    --secondary: 0, 0%, 50%; /* Gris moyen */
+    --accent: 140, 50%, 55%; /* Vert vif légèrement plus clair */
+    --card: 207, 80%, 15%; /* Fond de carte très foncé */
+    --card-foreground: 210, 10%, 90%; /* Texte clair sur carte */
+    --popover: 140, 50%, 20%; /* Fond popover vert foncé */
+    --popover-foreground: 210, 10%, 90%; /* Texte clair popover */
+    --primary-foreground: 207, 80%, 20%; /* Texte sur fond bleu foncé */
+    --secondary-foreground: 0, 0%, 90%; /* Texte clair sur gris */
+    --tertiary: 207, 80%, 65%; /* Tertiaire bleu plus clair */
+    --tertiary-foreground: 207, 80%, 10%; /* Texte sur tertiaire foncé */
+    --destructive: 0, 100%, 55%; /* Rouge vif pour éléments destructifs */
+    --destructive-foreground: 0, 0%, 90%; /* Texte clair sur rouge */
+    --muted: 207, 80%, 30%; /* Bleu atténué pour mode sombre */
+    --muted-foreground: 210, 10%, 90%; /* Texte clair sur bleu atténué */
+    --border: 207, 80%, 20%; /* Bordure bleue foncée */
+    --input: 207, 80%, 15%; /* Entrée de formulaire bleue foncée */
+    --ring: 140, 50%, 55%; /* Focus vert clair */
+    --radius: 0.5rem;
+    --primary-background: 207, 80%, 18%; /* Fond bleu très foncé */
+    --secondary-background: 0, 0%, 15%; /* Fond gris très foncé */
+    --tertiary-background: 140, 50%, 20%; /* Fond vert très foncé */
+    --background-canvas: 210, 30%, 10%; /* Toile de fond extrêmement foncée */
     --nav-height: 10dvh;
-    --nav-background: 202 72% 37%;
+    --nav-background: 207, 80%, 15%; /* Fond de navigation bleu foncé */
+    --nav-foreground: 210, 10%, 90%; /* Texte de navigation clair pour contraste élevé */
     --nav-height-mobile: 10dvh;
     --footer-height: 10dvh;
-    --footer-background: 202 72% 37%;
+    --footer-background: 207, 80%, 15%; /* Fond de pied de page bleu foncé */
     --footer-height-mobile: 10dvh;
     --drawer-width: 40vw;
     --drawer-width-mobile: 90vw;
+    }
   }
-} 
+}
 
 @media (prefers-color-scheme: light) {
   :root {
-     --background: 146 0% 100%;
-      --foreground: 262.99 21.32% 81.15%;
-      --card: 111.84 80.28% 46.02%;
-      --card-foreground: 177.27 61.21% 20.65%;
-      --popover: 274.27 100% 50.44%;
-      --popover-foreground: 267.5 17.89% 83.54%;
-      --primary: 146 88% 44%;
-      --primary-foreground: 146 88% 4%;
-      --secondary: 266 88% 44%;
-      --secondary-foreground: 0 0% 100%;
-      --tertiary: 146 86.92% 5.47%;
-      --tertiary-foreground: 146 86.92% 5.47%;
-      --accent: 26 97.99% 50.81%;
-      --accent-foreground: 0 0% 100%;
-      --destructive: 26.11 94.88% 49.62%;
-      --destructive-foreground: 17 20.75% 28.76%;
-      --muted: 127.63 84.65% 37.37%;
-      --muted-foreground: 179.52 19.81% 33.94%;
-      --border: 179.52 86.15% 18.65%;
-      --input: 188.55 85.4% 44.51%;
-      --ring: 146 88% 44%;
+          --background: 210, 20%, 25%; /* Fond très foncé */
+      --foreground: 210, 15%, 85%; /* Texte clair pour contraste élevé */
+      --primary: 207, 90%, 50%; /* Bleu vif et saturé */
+      --secondary: 0, 0%, 55%; /* Gris plus clair pour contraste */
+      --accent: 140, 60%, 45%; /* Vert vif et saturé */
+      --card: 207, 90%, 48%; /* Fond de carte bleu */
+      --card-foreground: 210, 20%, 85%; /* Texte sur carte */
+      --popover: 140, 60%, 48%; /* Fond popover vert */
+      --popover-foreground: 210, 15%, 85%; /* Texte popover */
+      --primary-foreground: 207, 90%, 10%; /* Texte sur bleu */
+      --secondary-foreground: 0, 0%, 100%; /* Texte sur gris */
+      --tertiary: 207, 90%, 55%; /* Tertiaire bleu légèrement plus clair */
+      --tertiary-foreground: 207, 90%, 5%; /* Texte sur tertiaire */
+      --destructive: 0, 100%, 50%; /* Rouge pour éléments destructifs */
+      --destructive-foreground: 0, 0%, 100%; /* Texte sur rouge */
+      --muted: 207, 90%, 65%; /* Bleu atténué */
+      --muted-foreground: 210, 20%, 85%; /* Texte sur bleu atténué */
+      --border: 207, 90%, 45%; /* Bordure bleue */
+      --input: 207, 90%, 50%; /* Entrée de formulaire bleue */
+      --ring: 140, 60%, 45%; /* Focus vert */
       --radius: 0.5rem;
-      --primary-background: 81 86% 49%;
-      --secondary-background: 292 87% 47%;
-      --tertiary-background: 228 87% 49%;
-      --background-canvas: 0 0% 100%;
+      --primary-background: 207, 90%, 53%; /* Fond bleu principal */
+      --secondary-background: 0, 0%, 60%; /* Fond gris secondaire */
+      --tertiary-background: 140, 60%, 50%; /* Fond vert tertiaire */
+      --background-canvas: 210, 20%, 25%; /* Toile de fond */
       --nav-height: 10dvh;
-      --nav-background: 202 72% 37%;
+      --nav-background: 207, 90%, 50%; /* Fond de navigation bleu */
       --nav-height-mobile: 10dvh;
       --footer-height: 10dvh;
-      --footer-background: 202 72% 37%;
+      --footer-background: 207, 90%, 50%; /* Fond de pied de page bleu */
       --footer-height-mobile: 10dvh;
       --drawer-width: 40vw;
       --drawer-width-mobile: 90vw;
@@ -124,38 +127,39 @@
 }
 @media (prefers-color-scheme: dark) {
     :root {
-      --background: 146 86.92% 5.47%;
-      --foreground: 146 100% 50%;
-      --card: 272.02 62.35% 16.65%;
-      --card-foreground: 146 79.22% 55.05%;
-      --popover: 211.11 80.28% 22.31%;
-      --popover-foreground: 146 38% 99%;
-      --primary: 146 88% 44%;
-      --primary-foreground: 146 89.24% 9.81%;
-      --secondary: 266 88% 44%;
-      --secondary-foreground: 265.25 100% 92.88%;
-      --tertiary: 146 86.92% 5.47%;
-      --tertiary-foreground: 146 100% 50%;
-      --accent: 26 89.24% 40.65%;
-      --accent-foreground: 30.63 51.85% 83.11%;
-      --destructive: 17 89.24% 49.48%;
-      --destructive-foreground: 0 94.48% 92.03%;
-      --muted: 266 50.59% 40.28%;
-      --muted-foreground: 266 21.64% 60.03%;
-      --border: 215 27.49% 10.17%;
-      --input: 247.2 31.15% 36.7%;
-      --ring: 146 83.17% 46.91%;
-      --primary-background: 146 86.92% 5.47%;
-      --secondary-background: 224.64 85.4% 5.93%;
-      --tertiary-background: 272.02 85.4% 5.93%;
-      --nav-height: 10dvh;
-      --nav-background: 202 72% 37%;
-      --nav-height-mobile: 10dvh;
-      --footer-height: 10dvh;
-      --footer-background: 202 72% 37%;
-      --footer-height-mobile: 10dvh;
-      --drawer-width: 40vw;
-      --drawer-width-mobile: 90vw;
+      --background: 210, 30%, 10%; /* Fond extrêmement foncé pour intimité */
+    --foreground: 210, 10%, 90%; /* Texte clair pour contraste élevé */
+    --primary: 207, 80%, 60%; /* Bleu vif légèrement plus clair pour mode sombre */
+    --secondary: 0, 0%, 50%; /* Gris moyen */
+    --accent: 140, 50%, 55%; /* Vert vif légèrement plus clair */
+    --card: 207, 80%, 15%; /* Fond de carte très foncé */
+    --card-foreground: 210, 10%, 90%; /* Texte clair sur carte */
+    --popover: 140, 50%, 20%; /* Fond popover vert foncé */
+    --popover-foreground: 210, 10%, 90%; /* Texte clair popover */
+    --primary-foreground: 207, 80%, 20%; /* Texte sur fond bleu foncé */
+    --secondary-foreground: 0, 0%, 90%; /* Texte clair sur gris */
+    --tertiary: 207, 80%, 65%; /* Tertiaire bleu plus clair */
+    --tertiary-foreground: 207, 80%, 10%; /* Texte sur tertiaire foncé */
+    --destructive: 0, 100%, 55%; /* Rouge vif pour éléments destructifs */
+    --destructive-foreground: 0, 0%, 90%; /* Texte clair sur rouge */
+    --muted: 207, 80%, 30%; /* Bleu atténué pour mode sombre */
+    --muted-foreground: 210, 10%, 90%; /* Texte clair sur bleu atténué */
+    --border: 207, 80%, 20%; /* Bordure bleue foncée */
+    --input: 207, 80%, 15%; /* Entrée de formulaire bleue foncée */
+    --ring: 140, 50%, 55%; /* Focus vert clair */
+    --radius: 0.5rem;
+    --primary-background: 207, 80%, 18%; /* Fond bleu très foncé */
+    --secondary-background: 0, 0%, 15%; /* Fond gris très foncé */
+    --tertiary-background: 140, 50%, 20%; /* Fond vert très foncé */
+    --background-canvas: 210, 30%, 10%; /* Toile de fond extrêmement foncée */
+    --nav-height: 10dvh;
+    --nav-background: 207, 80%, 15%; /* Fond de navigation bleu foncé */
+    --nav-height-mobile: 10dvh;
+    --footer-height: 10dvh;
+    --footer-background: 207, 80%, 15%; /* Fond de pied de page bleu foncé */
+    --footer-height-mobile: 10dvh;
+    --drawer-width: 40vw;
+    --drawer-width-mobile: 90vw;
     }
   }
   html,body {

@@ -27,7 +27,7 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
       <Header>
         <SheetTrigger>
           <Menu
-            className="bg-opacity-75 backdrop-filter backdrop-blur-lg  rounded-md w-10 h-10"
+            className="bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-md w-10 h-10"
           />
         </SheetTrigger>
       </Header>
@@ -39,7 +39,7 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
       
       <SheetContent 
         side={side} 
-        className="w-drawerWidth bg-tertiary text-tertiary-foreground dark:bg-secondary dark:text-secondary-foreground"
+        className="w-drawerWidth bg-background bg-opacity-light text-nav-foreground dark:bg-background dark:bg-opacity-light dark:text-nav-foreground"
       >
         <SheetHeader>
           <SheetTitle>

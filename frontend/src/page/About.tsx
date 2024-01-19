@@ -16,7 +16,7 @@ const slides = [slide1, slide2, slide3, slide4];
 const About = () => {
   return (
     <div
-      className="w-2/3 min-h-[90dvh] bg-white-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40  bg-cover bg-no-repeat p-12 text-center"
+      className="w-[90vw] min-h-[90dvh] bg-opacity-heavy rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40  bg-cover bg-no-repeat p-12 text-center"
     >
       <h1>About</h1>
       <Carousel
@@ -34,9 +34,9 @@ const About = () => {
               className="w-screen bg-transparent">
               <div className="p-1 bg-transparent">
                 <Card
-                  className="bg-transparent bg-no-repeat bg-cover bg-center rounded-lg"
+                  className="bg-transparent bg-no-repeat bg-cover bg-center rounded-lg h-[80dvh]"
                   style={{
-                    opacity: 0.75,
+                    opacity: 0.55,
                     backgroundImage: `url(${slides[index]})`
                   }}
                 >

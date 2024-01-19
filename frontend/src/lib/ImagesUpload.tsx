@@ -18,11 +18,13 @@ function ImagesUpload(): JSX.Element {
     noClick: true,
    });
   return (
-    <div className="flex flex-col justify-center w-1/2 bg-white p-5 min-h-[45dvh] rounded-xl bg-opacity-25 backdrop-filter backdrop-blur-lg">
+    <div className="flex flex-col justify-center w-[90vw] p-5 min-h-[45dvh] rounded-xl bg-opacity-medium backdrop-filter backdrop-blur-lg">
       <div className="flex-initial items-center justify-center">
         <Label
           htmlFor="dropzone-file"
-          className="flex flex-col items-center justify-center h-[30dvh] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+          className="flex flex-col items-center justify-center h-[30dvh] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 bg-opacity-heavy dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 hover:bg-opacity-medium dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600
+          dark:bg-opacity-heavy
+          dark:hover:bg-opacity-light"
         >
           <div
             {...getRootProps()}
