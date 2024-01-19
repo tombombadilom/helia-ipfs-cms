@@ -97,7 +97,7 @@ const LoginForm: React.FC = () => {
            <div className="btn-wrapper w-full">
              <Button
                 type="submit"
-                className="w-full m-auto bg-card bg-opacity-80 text-card-foreground border-0 pr-3 pl-3"
+                className="w-full m-auto bg-card bg-opacity-heavy text-card-foreground border-0 pr-3 pl-3"
               >Login</Button>
             <div className="btn-bg w-1/2"></div>
           </div>
