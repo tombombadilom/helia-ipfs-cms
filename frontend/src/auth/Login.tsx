@@ -49,14 +49,14 @@ const LoginForm: React.FC = () => {
   }
 
   return (
-    <Card className="gradient-border w-[80vw] bg-opacity-heavy backdrop-filter backdrop-blur-lg  bg-card text-card-foreground p-5 rounded-xl dark:bg-card dark:bg-opacity-medium dark:text-card-foreground">
+    <Card className=" w-[80vw]  border-0 backdrop-filter backdrop-blur-lg bg-card bg-opacity-heavy   text-card-foreground p-5 rounded-xl">
       <CardHeader>
         <CardTitle><img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" /> Helia IPFS CMS</CardTitle>
         <CardDescription>Sign in to your account</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
          <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-card bg-transparent dark:text-card-foreground dark:bg-transparent">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
             name="email"
@@ -94,17 +94,27 @@ const LoginForm: React.FC = () => {
               </FormItem>
             )}
           />
-            <Button
-              type="submit"
-              className="w-full"
-            >Submit</Button>
+           <div className="btn-wrapper w-full">
+             <Button
+                type="submit"
+                className="w-full m-auto bg-card bg-opacity-80 text-card-foreground border-0 pr-3 pl-3"
+              >Login</Button>
+            <div className="btn-bg w-1/2"></div>
+          </div>
         </form>
       </Form>
       </CardContent>
-      <CardFooter>
-        <Button className="w-full">
-          Forgot your login ?
-        </Button>
+      <CardFooter
+        className="flex justify-between w-full flex-row"
+      >
+       
+        <div className="btn-wrapper w-1/2">
+          <Button className="w-full m-auto bg-card text-card-foreground border-0 pr-3">
+            Forgot your login ?
+          </Button>
+          <div className="btn-bg w-1/2"></div>
+        </div>
+        
       </CardFooter>
     </Card>
   )

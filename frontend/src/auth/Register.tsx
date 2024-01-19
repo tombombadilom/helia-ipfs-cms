@@ -56,7 +56,7 @@ const Register = () => {
   }
 
   return (
-     <Card className="gradient-border w-[80vw] bg-opacity-light backdrop-filter backdrop-blur-lg  bg-card text-card-foreground p-5 rounded-xl dark:bg-card dark:bg-opacity-15 dark:text-card-foreground">
+     <Card className="w-[80vw]  border-0 backdrop-filter backdrop-blur-lg bg-card bg-opacity-heavy   text-card-foreground p-5 rounded-xl">
       <CardHeader>
         <CardTitle><img src="/icon/favicon-32x32.png" alt="Helia IPFS CMS" className="mx-auto h-[32px]" /> Helia IPFS CMS</CardTitle>
         <CardDescription>Register to your account</CardDescription>
@@ -114,10 +114,13 @@ const Register = () => {
               </FormItem>
             )}
           />
-            <Button
-              type="submit"
-              className="w-full"
-            >Submit</Button>
+           <div className="btn-wrapper w-full">
+             <Button
+                type="submit"
+                className="w-full m-auto bg-card bg-opacity-80 text-card-foreground border-0 pr-3 pl-3"
+              >Register</Button>
+            <div className="btn-bg w-1/2"></div>
+          </div>
         </form>
       </Form>
 

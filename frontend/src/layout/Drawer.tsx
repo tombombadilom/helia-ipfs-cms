@@ -25,9 +25,11 @@ const MySheet: React.FC<SheetProps> = ({ children }) => {
   return (
     <Sheet key={side}>
       <Header>
-        <SheetTrigger>
+        <SheetTrigger
+          className="w-12 h-12 bg-transparent  rounded-lg p-1 focus:bg-opacity-60 active:bg-opacity-75 dark:bg-transparent dark:bg-opacity-10 dark:hover:bg-opacity-60 dark:focus:bg-opacity-60 dark:active:bg-opacity-75"
+        >
           <Menu
-            className="bg-opacity-75 backdrop-filter backdrop-blur-lg rounded-md w-10 h-10"
+            className="w-full h-full bg-opacity-light text-nav-foreground dark:bg-opacity-light dark:text-nav-foreground backdrop-filter backdrop-blur-lg rounded-md "
           />
         </SheetTrigger>
       </Header>
