@@ -1,0 +1,99 @@
+svg {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+circle {
+  animation: move var(--duration) ease-in-out infinite;
+}
+
+@keyframes move {
+  0%, 100%{
+    cx: var(--from-x);
+    cy: var(--from-y);
+  }
+  50% {
+    cx: var(--to-x);
+    cy: var(--to-y);
+  }
+}
+
+/* 
+.banner {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(100px);
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgb(255 255 255 / 20%);
+  border: 0.5rem solid rgb(255 255 255 / 10%);
+  width: 30rem;
+  max-width: 70vw;
+}
+
+@keyframes move {
+  0%, 100%{
+    cx: var(--from-x);
+    cy: var(--from-y);
+  }
+  50% {
+    cx: var(--to-x);
+    cy: var(--to-y);
+  }
+}
+.jumbo {
+    --stripes: repeating-linear-gradient(
+        100deg,
+        #fff 0%,
+        #fff 7%,
+        transparent 10%,
+        transparent 12%,
+        #fff 16%
+    );
+    --stripesDark: repeating-linear-gradient(
+        100deg,
+        #000 0%,
+        #000 7%,
+        transparent 10%,
+        transparent 12%,
+        #000 16%
+    );
+    --rainbow: repeating-linear-gradient(
+        100deg,
+        hsl(var(--primary-foreground)) 0%,
+        hsl(var(--secondary-foreground)) 15%,
+        hsl(var(--tertiary-foreground))  20%,
+        hsl(var(--destructive-foreground))  25%,
+        hsl(var(--muted-foreground))  30%
+    );
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 300%, 200%;
+    background-position: 50% 50%, 50% 50%;
+    filter: blur(10px) invert(100%);
+    mask-image: radial-gradient(ellipse at 100% 0%, var(--primary-foreground) 20%, transparent 70%);
+    pointer-events: none;
+}
+
+.jumbo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 200%, 100%;
+    animation: jumbo 60s linear infinite;
+    background-attachment: fixed;
+    mix-blend-mode: difference;
+}
+
+.dark .jumbo {
+    background-image: var(--stripesDark), var(--rainbow);
+    filter: blur(10px) opacity(50%) saturate(200%);
+}
+.dark .jumbo::after {
+    background-image: var(--stripesDark), var(--rainbow);
+} */
