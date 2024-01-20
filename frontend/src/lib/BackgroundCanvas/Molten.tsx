@@ -1,101 +1,107 @@
-// https://codepen.io/tmrDevelops/pen/JGvyra
-
-import React, { useEffect, useRef } from 'react';
-
-// speed: A float representing the speed at which the animation updates. 
-// Acceptable range is typically from 0.1 for slower motion to 1.0 for faster motion.
-// Default value is set to 0.5 for moderate speed.
-const Molten = ({ speed = 0.1 }: { speed?: number }) => {
+import React, { useRef } from 'react';
+// import Worker from './molten.worker?worker';
+// import {molten} from './molten.js';
+type MoltenProps = {
+  speed?: number; // Optional speed prop
+}
+// document.addEventListener('DOMContentLoaded', function () {
+//   // Check if the canvas with id "molten" is present
+//   const c = document.getElementById('molten');
+//   if (c) {
+//     // If the canvas is present, execute the molten function
+//     molten();
+//   } else {
+//     // Log an error or handle the absence of the canvas element appropriately
+//     console.error('Canvas element with id "molten" not found.');
+//   }
+// });
+/**
+ * Molten component with strongly typed props
+ * @param {MoltenProps} props - The props for the Molten component
+ * @returns {JSX.Element} - The rendered Molten component
+ */
+const Molten: React.FC<MoltenProps> = (props: MoltenProps): JSX.Element => {
+  // Create a reference to the canvas element
+  props.speed ? console.log(props.speed) : ''
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // // Create a reference to the worker instance
+  // const workerRef = useRef<Worker>(); // Utilise useRef pour retenir l'instance du worker
+  
+  // // Function to resize the canvas based on its parent element's size
+  // const resizeCanvas = useCallback((): void => {
+  //   const canvas = canvasRef.current;
+  //   if (canvas && canvas.parentElement) {
+  //     canvas.width = canvas.parentElement.offsetWidth;
+  //     canvas.height = canvas.parentElement.offsetHeight;
 
-  useEffect(() => {
-    const draw = () => {
-      const c = canvasRef.current;
-      if (c) {
-        const $ = c.getContext('2d');
-        if ($) {
-          const wh = 128;
-          const w2h = wh * wh;
-          c.width = c.height = wh;
-          const img = $.createImageData(wh, wh);
-          const id = img.data;
-          let t = 0;
-          // Adjust 'inc' as a function of 'speed' to control the evolution speed of the animation.
-          const inc = speed / wh;
-          const arr: number[] = [];
+  //     // Get the worker instance from the reference
+  //     const worker = workerRef?.current;
+  //     if (worker) {
+  //       // Send a message to the worker with the speed, width, and height
+  //       worker.postMessage({
+  //         speed: props.speed,
+  //         width: canvas.width,  
+  //         height: canvas.height,
+  //       });
+  //     }
+  //   }
+  // }, [props.speed, workerRef]);
 
-          for (let k = 0; k < w2h; ++k)
-            arr[k] = Math.random() * 1.5 - 0.5;
+  // // Effect to initialize the worker and set up event listeners
+  // useEffect(() => {
+  //   // Create a new worker instance and store it in the workerRef
+  //   const worker = new Worker();
+  //   workerRef.current = worker;
+   
+  //   // Check if the browser supports web workers
+  //   if (window.Worker) {
+  //     // Configurer un écouteur d'événement pour les messages du worker
+  //     worker.addEventListener('message', (e) => {
+  //       const imgData = e.data;
+  //       const canvas = canvasRef.current;
+  //       if (canvas) {
+  //         const context = canvas.getContext('2d');
+  //         if (context) {
+  //           // Dessiner le cadre reçu sur le canvas
+  //           //console.log('imgData', imgData);
+  //           context.putImageData(imgData, 0, 0);
+  //         }
+  //       }
+  //     });
+  //     // Call the resizeCanvas function to initially resize the canvas
+  //     resizeCanvas();
+  //   } else {
+  //     // Log an error if web workers are not supported in the browser
+  //     console.error('Web workers are not supported in this browser.');
+  //   }
 
-          const drawFrame = () => {
-            window.requestAnimationFrame(drawFrame);
-            t += inc;
-            for (let x = 1; x >= 0; x -= inc) {
-              for (let y = 1; y >= 0; y -= inc) {
-                const idx = (y * wh + x) * wh * 4;
-                const dx = x;
-                const dy = y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const ax = oct(x, y);
-                const ay = oct(x + 2, y + t / 3);
-                const bx = oct(x + dist * .3 + ax / 22 + 0.7, y + ay / 5 + 2);
-                const by = oct(x + ax / 3 + 4 * t, y + ay / 3 + 5);
-                const n = oct(x + bx / 5, y + by / 2) * 0.7 + .15;
-                const d = ax * by / 2;
-                const e = ay * bx / 2;
+  //   // Add a resize event listener to call resizeCanvas on window resize
+  //   window.addEventListener('resize', resizeCanvas);
 
-                id[idx + 0] = hue(n + d / 5);
-                id[idx + 1] = hue(n / 3 + e / 5 + d);
-                id[idx + 2] = hue(d + e);
-                id[idx + 3] = hue(1 - ease(dist) * (e + d) * 5)
-              }
-            }
-            $.putImageData(img, 0, 0);
-          }
-          const hue = ($: number) => {
-            return 255 * Math.min(Math.max($, 0), 1);
-          }
-          const ease = (x: number) => {
-            return (x > 0.2) ? 0 : i(1, 0, x * 6);
-          }
-          const i = ($: number, db: number, t: number) => {
-            t = t * t * t * (6 * t * t - 15 * t + 10);
-            return $ + (db - $) * t;
-          }
-          const n = (x: number, y: number) => {
-            const i = Math.abs(x * wh + y) % w2h;
-            return arr[i];
-          }
-          const oct = (x: number, y: number) => {
-            const o1 = p(x * 3.0, y * 4.0);
-            const o2 = p(x * 4.0, y * 5.0);
-            return o1 + o2 * 0.5;
-          }
-          const p = (x: number, y: number) => {
-            const nx = Math.floor(x);
-            const ny = Math.floor(y);
-            return i(i(n(nx, ny), n(nx + 1, ny), x - nx), i(n(nx, ny + 1), n(nx + 1, ny + 1), x - nx), y - ny);
-          }
+  //   // Cleanup function to terminate the worker and remove event listeners
+  //   return () => {
+  //     if (window.Worker) {
+  //       workerRef.current?.terminate();
+  //     }
+  //     window.removeEventListener('resize', resizeCanvas);
+  //   };
+  // }, [props.speed, resizeCanvas]);
 
-          drawFrame();
-        }
-      }
-    };
-    draw();
-  }, [speed]);
-
+  // Render the canvas element with inline styles
   return (
     <canvas
-      style={{
-        position: 'fixed',
-        width: 'inherit',
-        height: 'inherit',
-        opacity: .25,
-        top: 0,
-        left: 0,
-        zIndex: 0,
-      }}  
+      id="molten"
       ref={canvasRef}
+      style={{
+      //   position: 'absolute',
+      //   top: 0,
+      //   left: 0,
+        width: '100vw',
+        height: '100dvh',
+      //   opacity: .3,
+        backgroundColor: 'hsla(0, 0%, 0%, .5)',
+      //   zIndex: 1,
+      }}
     />
   );
 }

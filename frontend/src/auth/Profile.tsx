@@ -49,7 +49,7 @@ const Profile = () => {
     console.log(values)
   }
   return (
-    <Card className=" w-[90vw] border-0 p-5 rounded-xl backdrop-filter backdrop-blur-lg bg-card bg-opacity-medium text-card-foreground dark:bg-card dark:bg-opacity-medium dark:text-primary-foreground h-fit">
+    <Card className=" w-[80vw] overflow-x-hidden border-0 p-5 rounded-xl backdrop-filter backdrop-blur-lg bg-card bg-opacity-medium text-card-foreground dark:bg-card dark:bg-opacity-medium dark:text-primary-foreground h-fit">
       <CardTitle className="flex flex-col content-start items-center gap-2">
         <Avatar className="w-12 h-12">
           <AvatarImage src="../icon/favicon-32x32.png" />
@@ -57,7 +57,7 @@ const Profile = () => {
         </Avatar>
         Helia IPFS CMS
       </CardTitle>
-      <div className="grid grid-cols-2 content-start w-full">
+      <div className="grid grid-cols-2 content-start">
         <CardHeader className="flex w-[20vw] items-center">
           <CardDescription >
             <Avatar className="w-32 h-32">
@@ -70,7 +70,7 @@ const Profile = () => {
         <CardContent className="w-[60vw]">
           <div className="min-h-fit pt-2 font-mono my-16">
             <div className="container mx-auto">
-              <div className="Inputs w-full max-w-2xl p-6 mx-auto">
+              <div className="Input  max-w-2xl p-6 mx-auto">
                 <h2 className="text-2xl text-gray-900">Account Setting</h2>
                 <form className="mt-6 border-t border-gray-400 pt-4">
                   <div className='flex flex-wrap -mx-3 mb-6'>

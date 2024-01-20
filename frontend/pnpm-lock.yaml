@@ -44,6 +44,9 @@ dependencies:
   '@radix-ui/react-tooltip':
     specifier: ^1.0.7
     version: 1.0.7(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+  '@react-hook/window-size':
+    specifier: ^3.1.1
+    version: 3.1.1(react@18.2.0)
   autoprefixer:
     specifier: ^10.4.17
     version: 10.4.17(postcss@8.4.33)
@@ -65,6 +68,9 @@ dependencies:
   lucide-react:
     specifier: ^0.303.0
     version: 0.303.0(react@18.2.0)
+  open-simplex-noise:
+    specifier: ^2.5.0
+    version: 2.5.0
   postcss:
     specifier: ^8.4.33
     version: 8.4.33
@@ -92,6 +98,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.21.3
     version: 6.21.3(react-dom@18.2.0)(react@18.2.0)
+  simplex-noise:
+    specifier: ^4.0.1
+    version: 4.0.1
   tailwind-merge:
     specifier: ^2.2.0
     version: 2.2.0
@@ -5688,6 +5697,10 @@ packages:
       mimic-fn: 4.0.0
     dev: true
 
+  /open-simplex-noise@2.5.0:
+    resolution: {integrity: sha512-co7x8uWxGcgFtsJNBFqI9ylq+5Isotz2hZR7dsD5Sl+RDPGBeMEG41KAfF+5gF10ksi9Pg6DNpMHEoyTKLbejQ==}
+    dev: false
+
   /open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
@@ -6488,6 +6501,10 @@ packages:
 
   /simplex-noise@3.0.1:
     resolution: {integrity: sha512-eww0SFiWLyOaUKQMJ7gbdvQJvULeJdM/Y4BiC3rrOQnYHo+MSPh465/qeXSZkpTdB9/HthumpnYD3DobZweBBQ==}
+    dev: false
+
+  /simplex-noise@4.0.1:
+    resolution: {integrity: sha512-zl/+bdSqW7HJOQ0oDbxrNYaF4F5ik0i7M6YOYmEoIJNtg16NpvWaTTM1Y7oV/7T0jFljawLgYPS81Uu2rsfo1A==}
     dev: false
 
   /slash@3.0.0:
