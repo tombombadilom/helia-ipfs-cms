@@ -1,0 +1,9 @@
+NODE_ENV=development
+PORT=6000
+PROTOCOL="HTTP" # HTTP | HTTPS
+API_URL="localhost" 
+SSL=false # boolean false | true
+CLUSTER=true
+INSTANCES=4
+LOGS=true
+LOG_ERROR_FILE="logs/error.log"

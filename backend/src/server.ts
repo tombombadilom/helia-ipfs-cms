@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import app from './app.ts';
-import logger from './logger.ts';
+import app from './app';
+import logger from './logger';
 
 const serve = () => {
   const result = dotenv.config();

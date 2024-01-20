@@ -4,9 +4,9 @@ import path from 'path';
 import express, {
   Request, Response, NextFunction, Express,
 } from 'express';
-import ApplicationError from './errors/application-error.ts';
-import routes from './routes.ts';
-import logger from './logger.ts';
+import ApplicationError from './errors/application-error';
+import routes from './routes';
+import logger from './logger';
 
 const app: Express = express();
 

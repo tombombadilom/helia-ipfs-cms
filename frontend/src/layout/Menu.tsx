@@ -31,8 +31,8 @@ const links: Link[] = [
     link: "/Upload"
   },
   {
-    name: "Map",
-    link: "/Map"
+    name: "Profile",
+    link: "/Profile"
   }
 ];
 

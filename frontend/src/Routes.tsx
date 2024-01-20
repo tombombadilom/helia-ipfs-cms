@@ -12,6 +12,7 @@ const Register = lazy(() => import("./auth/Register.tsx"));
 const Home = lazy(() => import("./page/Home"));
 const About = lazy(() => import("./page/About"));
 const ImagesUpload = lazy(() => import("./lib/ImagesUpload.tsx"));
+const Profile = lazy(() => import("./page/Profile"));
 
 
 const MyRoutes = () => {
@@ -26,6 +27,7 @@ const MyRoutes = () => {
           <Route path="/Logout" element={<Logout />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Upload" element={<ImagesUpload />} />
+          <Route path="/Profile" element={<Profile />} />
           <Route path="*" element={<div> Page not found </div> } />
         </Routes>
       </Layout>

@@ -4,7 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
-  ignorePatterns: ['coverage-ts/*', 'test/*'],
+  ignorePatterns: ['coverage-ts/*', 'test/*', 'dist/*'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -35,6 +35,14 @@ module.exports = {
         args: 'none',
         ignoreRestSiblings: true,
       },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+      }
     ]
   },
 };

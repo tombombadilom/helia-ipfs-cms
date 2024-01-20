@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import handle404 from '../page/404.ts';
+import handle404 from '../page/404';
 /**
  * Handler for 404 Not Found response.
  *

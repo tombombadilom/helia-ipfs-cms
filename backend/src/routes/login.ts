@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { login } from '../middleware/auth/auth.ts';
-import logger from '../logger.ts';
+import { login } from '../middleware/auth/auth';
+import logger from '../logger';
 
 /**
  * Handle login request
