@@ -286,20 +286,7 @@ body {
     background-color: var(--background);
     color: var(--primary-foreground);
 }
-.content--canvas {
-  background-color: var(--background-canvas);
-}
-.content--canvas canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color-scheme: light;
-  z-index: 0;
-  pointer-events: none;
-  background-color: var(--background-canvas);
-}
+
 a {
   font-weight: 500;
   color: #646cff;
