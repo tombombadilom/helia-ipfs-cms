@@ -12,7 +12,7 @@ const Register = lazy(() => import("./auth/Register.tsx"));
 const Home = lazy(() => import("./page/Home"));
 const About = lazy(() => import("./page/About"));
 const ImagesUpload = lazy(() => import("./lib/ImagesUpload.tsx"));
-const Profile = lazy(() => import("./page/Profile"));
+const Profile = lazy(() => import("./auth/Profile"));
 
 
 const MyRoutes = () => {
