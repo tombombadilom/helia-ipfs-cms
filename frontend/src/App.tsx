@@ -3,7 +3,8 @@ import './App.css';
 import { ThemeProvider } from './lib/ThemeProvider.tsx';
 import loading from './lib/loading';
 import { ErrorBoundary } from './lib/ErrorBoundary';
-// import Swirl from './lib/BackgroundCanvas/Swirl.tsx';
+
+import CanvasBackground from './lib/BackgroundCanvas/CanvasBackground.tsx';
 // Lazy load the Routes component to split code and only load it when needed
 const Routes = lazy(() => import('./Routes'));
 
@@ -11,9 +12,9 @@ const Routes = lazy(() => import('./Routes'));
 const App = () => {
   return (
     <ErrorBoundary>
+      <CanvasBackground />
       <Suspense fallback={loading()}>
         <ThemeProvider defaultTheme={"dark"} storageKey={"vite-ui-theme"}>
-          {/* <Swirl /> */}
           <Routes />
         </ThemeProvider>
       </Suspense>
