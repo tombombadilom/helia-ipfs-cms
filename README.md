@@ -1,3 +1,5 @@
+This project is deprecated and has moved to : [https://github.com/HIC-Repository](https://github.com/HIC-Repository)
+
 # helia-ipfs-cms-template
 This is a simple implementation of a simple react and node.js cms written in typescript with storage in ipfs with helia.
 ## Global installation with docker-compose
