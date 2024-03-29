@@ -1,6 +1,5 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: '.env.default' });
-
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isCluster = process.env.CLUSTER === 'true';
 const instances = parseInt(process.env.INSTANCES, 10) || 4;
